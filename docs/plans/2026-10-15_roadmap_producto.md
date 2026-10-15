@@ -71,7 +71,7 @@ Cada milestone define en su plan los tests que se escriben en rojo antes de impl
 ### Fase 0: Dogfooding en casa (sin nube; LLM con API key de dev)
 - [x] **M0**: Fundaciones (completado el 2026-10-15). Plan: [2026-10-15_m0_fundaciones.md](2026-10-15_m0_fundaciones.md). Incluye monorepo, config, store, cliente HA base, compose de HA demo y CI.
 - [x] **M1**: Cliente HA completo y entidades normalizadas v1 (completado el 2026-10-15). Plan: [2026-10-15_m1_entidades.md](2026-10-15_m1_entidades.md). [ADR-0007](../adr/0007-contrato-entidad-v1-tools-por-capacidad.md).
-- [ ] **M2a**: `llmkit`, el proveedor de LLM como commodity con formatos OpenAI y Anthropic. Requiere ADR-0008.
+- [x] **M2a**: `llmkit`, el proveedor de LLM como commodity con formatos OpenAI y Anthropic (completado el 2026-10-15). Plan: [2026-10-15_m2a_llmkit.md](2026-10-15_m2a_llmkit.md). [ADR-0008](../adr/0008-llmkit-formato-neutro-adaptadores-openai-anthropic.md).
 - [ ] **M2b**: Tools, agente, guardrails L0–L3 y L5, CLI `edge-core chat` y evals. Requiere ADR-0009 (modelo de seguridad).
 - [ ] **M3**: Identidad, Telegram por long polling, confirmaciones con botones y auditoría.
 - [ ] **M4**: Memoria como grafo de conocimiento sobre SQLite (requiere ADR), scheduler, recordatorios, listas en `todo` de HA y brief matinal.
@@ -104,6 +104,7 @@ Cada milestone define en su plan los tests que se escriben en rojo antes de impl
   - Se inicia M0.
 - **[2026-10-15]**: M0 completado. Hay un cliente WS de HA, store SQLite y `edge-core run --once` validado contra HA 2026.10.1 real (123 entidades del demo). Siguiente: M1.
 - **[2026-10-15]**: M1 completado e integrado en `main`. Módulo `contracts` con `entity.v1.json`, 13 adaptadores de dominio con validación de esquema, `Directory` concurrente inmutable, `Syncer` reactivo con debouncing, subcomando CLI `entities dump`, y suite de integración real contra HA 2026.10.1 pasando con `-race` (cambio físico en < 1s, reconexión abrupta y reinicio de contenedor Docker). **Siguiente: M2a (`llmkit`)**, que requiere ADR-0008 y plan `docs/plans/YYYY-MM-DD_m2a_llmkit.md`.
+- **[2026-10-15]**: M2a completado. Módulo neutro `contracts/schemas/llm.v1.json` y tipos Go `contracts/llm.go`, nuevo módulo `llmkit` con servidor de pruebas hermético `llmtest.Server`, adaptadores `type: openai` (compatible con OpenAI, NVIDIA NIM Nemotron y Ollama) y `type: anthropic` (Messages API), suite de conformidad exhaustiva parametrizada con verificación de cero fugas de goroutines (`goleak`), `Router` resiliente con conmutación automática de fallback ante 429, 5xx y timeouts, y smoke tests cloud/locales. **Siguiente: M2b (Tools, agente, guardrails y evals)**.
 
 ### Preguntas abiertas (no bloquean M0–M3)
 
