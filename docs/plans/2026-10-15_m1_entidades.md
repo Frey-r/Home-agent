@@ -199,10 +199,10 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] Validar rendimiento y resiliencia contra `hatest`.
 
 ### Fase 10: Integración en CLI (`edge-core`)
-- [ ] Refactorizar `run` para aceptar dependencias inyectables (`stdout`, `stderr`, lookup).
-- [ ] Implementar subcomando `edge-core entities dump [--exposed-only] [--category X]`.
-- [ ] Integrar `Syncer` en `edge-core run` para actualización continua en memoria y logging de cambios.
-- [ ] Tests en rojo y verde de comandos CLI.
+- [x] Refactorizar `run` para aceptar dependencias inyectables (`stdout`, `stderr`, lookup).
+- [x] Implementar subcomando `edge-core entities dump [--exposed-only] [--category X]`.
+- [x] Integrar `Syncer` en `edge-core run` para actualización continua en memoria y logging de cambios.
+- [x] Tests en rojo y verde de comandos CLI.
 
 ### Fase 11: Pruebas de Integración y Cierre
 - [ ] Ejecutar `dev/scripts/test.ps1 -Integration` contra HA demo sembrado.
@@ -244,6 +244,12 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
   - `Syncer` reactivo: suscripción previa a eventos antes de snapshot para evitar pérdidas intermedias; debouncing de ráfagas de cambios de registros (áreas, dispositivos, entidades) a 100ms; procesamiento de `state_changed` y actualización en < 1s; descarte de eventos más viejos que el snapshot inicial; manejo seguro de altas y bajas; sin estados parciales si la conexión se cae durante el snapshot.
   - Suite completa de tests pasando con `-race` en todos los módulos de `go.work`.
   - Estado: listo para iniciar Fase 10 (Integración en CLI `edge-core`).
+- **[2026-10-15 11:30]**:
+  - Fase 10 completada: CLI `edge-core` refactorizado para aceptar streams `stdout` y `stderr` inyectables.
+  - Implementado subcomando `edge-core entities dump` con filtros `--exposed-only` y `--category <cat>`, imprimiendo JSON indentado a `stdout`.
+  - Integrado `Directory` y `Syncer` en `edge-core run` (con `Supervisor` continuo en modo daemon y flag `--once` para smoke tests), emitiendo logs estructurados de entidades actualizadas y sincronización.
+  - Tests en rojo y verde de CLI implementados en `edge/cmd/edge-core/entities_dump_test.go` y `run_test.go`, con validación concurrente thread-safe (`safeBuffer`) y paso limpio con `-race`.
+  - Estado: listo para iniciar Fase 11 (Pruebas de Integración con HA real y Cierre).
 
 
 

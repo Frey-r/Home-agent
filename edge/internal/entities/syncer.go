@@ -24,6 +24,10 @@ type Syncer struct {
 	lastUpdated      map[string]time.Time
 	RegistryDebounce time.Duration
 	ExposureRefresh  time.Duration
+
+	// Callbacks para observabilidad y logging reactivo
+	OnEntityUpdated func(ent *contracts.Entity)
+	OnEntityRemoved func(id string)
 }
 
 // NewSyncer crea un sincronizador asociado al directorio dado.
@@ -257,6 +261,9 @@ func (s *Syncer) handleStateChanged(ev ha.Event) {
 		delete(s.lastUpdated, entityID)
 		s.mu.Unlock()
 		s.dir.Remove("ha:" + entityID)
+		if s.OnEntityRemoved != nil {
+			s.OnEntityRemoved("ha:" + entityID)
+		}
 		return
 	}
 
@@ -290,5 +297,8 @@ func (s *Syncer) handleStateChanged(ev ha.Event) {
 	ent, err := Build(haSt, regs, exposed)
 	if err == nil && ent != nil {
 		s.dir.Update(ent)
+		if s.OnEntityUpdated != nil {
+			s.OnEntityUpdated(ent)
+		}
 	}
 }

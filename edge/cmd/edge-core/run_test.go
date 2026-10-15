@@ -105,7 +105,7 @@ func TestRun(t *testing.T) {
 			defer cancel()
 
 			var logs bytes.Buffer
-			err := run(ctx, tt.args, lookupFrom(tt.env(srv.URL, dataDir)), &logs)
+			err := run(ctx, tt.args, lookupFrom(tt.env(srv.URL, dataDir)), &logs, &logs)
 
 			switch {
 			case tt.wantErr != "" || tt.wantErrIs != nil:

@@ -37,6 +37,13 @@ func (d *Directory) Version() uint64 {
 	return d.version
 }
 
+// Count devuelve el número total de entidades en el directorio.
+func (d *Directory) Count() int {
+	d.mu.RLock()
+	defer d.mu.RUnlock()
+	return len(d.entities)
+}
+
 // Get obtiene una entidad por su ID normalizado (ha:<dominio>.<objeto>).
 func (d *Directory) Get(id string) (*contracts.Entity, bool) {
 	d.mu.RLock()
