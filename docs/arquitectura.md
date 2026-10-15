@@ -227,28 +227,32 @@ Todos los contratos son JSON Schema en `contracts/schemas/`. Para Go y TypeScrip
 
 ### 7.1 Entidad normalizada v1 (`entity.v1.json`)
 
-Evoluciona la sección 5 del documento original. Cambios respecto de esa versión:
+Evoluciona la sección 5 del documento original y se formaliza en [ADR-0007](adr/0007-contrato-entidad-v1-tools-por-capacidad.md). Cambios y definiciones clave implementados en el Hito M1:
 
-- `id` lleva prefijo de origen, para poder reemplazar HA más adelante.
-- `room` pasa a llamarse `area` y viene del registro de áreas de HA.
-- Se agregan `risk` y `aliases`.
-- `params` pasa a ser un fragmento de JSON Schema.
+- `id` lleva prefijo de origen (ej. `ha:<domain>.<object>`), permitiendo desacoplar HA a futuro.
+- `area` es un objeto estructurado (`{"id": "...", "name": "..."}`) resuelto desde el registro de áreas de HA o del dispositivo asociado.
+- `risk` se clasifica en 4 niveles (`low | medium | high | critical`) tanto para capacidades individuales como para la entidad (heredando el máximo riesgo de sus acciones o miembros en escenas).
+- `aliases` garantiza un array normalizado de strings (sin `null`).
+- `params` en cada `Capability` es un fragmento de JSON Schema canónico libre de `oneOf`/`anyOf`/`allOf`, garantizando interoperabilidad limpia con tool calling de LLMs.
+- Soporte para 13 categorías en M1: `light`, `switch`, `cover`, `lock`, `alarm_control_panel`, `climate`, `media_player`, `sensor`, `binary_sensor`, `scene`, `script`, `todo`, `weather`.
+- Sincronización reactiva mediante `Syncer` (WebSocket con suscripciones previas, debounce de registros a 100ms y latencia < 1s) y almacenamiento lock-free en `Directory` con snapshots inmutables y deduplicación de versiones.
 
 ```json
 {
   "id": "ha:light.living_lampara",
-  "source": {"kind": "home_assistant", "entity_id": "light.living_lampara", "device_id": "…"},
+  "source": {"kind": "ha", "entity_id": "light.living_lampara", "device_id": "dev_123"},
   "name": "Lámpara living", "aliases": ["luz de pie"],
-  "category": "light", "area": "living", "available": true, "risk": "low",
+  "category": "light", "area": {"id": "living", "name": "Living"}, "available": true, "risk": "low",
+  "exposed": true,
   "state": {"power": "on", "brightness_pct": 60, "color_temp_k": 3000},
   "capabilities": [
-    {"action": "set_power", "params": {"state": {"enum": ["on", "off"]}}},
-    {"action": "set_brightness", "params": {"brightness_pct": {"type": "integer", "minimum": 1, "maximum": 100}}}
+    {"action": "set_power", "kind": "command", "risk": "low", "params": {"type": "object", "properties": {"state": {"type": "string", "enum": ["on", "off"]}}, "required": ["state"], "additionalProperties": false}},
+    {"action": "set_brightness", "kind": "command", "risk": "low", "params": {"type": "object", "properties": {"brightness_pct": {"type": "integer", "minimum": 1, "maximum": 100}}, "required": ["brightness_pct"], "additionalProperties": false}}
   ]
 }
 ```
 
-**Riesgo.** Se clasifica como `low | medium | high | critical` según el dominio y el `device_class`: `lock`, `alarm_control_panel` y los cover de tipo `garage`, `gate` o `door` son `critical`.
+**Riesgo.** Se clasifica como `low | medium | high | critical` según el dominio y el `device_class`: `lock`, `alarm_control_panel` y los cover de tipo `garage`, `gate` o `door` son `critical`. Las escenas heredan el riesgo máximo de las entidades que componen su escena.
 
 **Tools.** Se genera una por cada par (categoría, acción) presente en el hogar, con `targets: string[]`. Ejemplos: `light_set_power`, `light_set_brightness`, `climate_set_temperature`, `cover_set_position`, `lock_set`, `media_player_control`, `scene_activate`, `script_run`, más `home_query(area?, category?, ids?)`. En total son entre 20 y 40 tools, sin importar cuántas entidades tenga el hogar.
 
