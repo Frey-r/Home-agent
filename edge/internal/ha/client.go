@@ -350,7 +350,7 @@ func (c *Conn) Close() error {
 	var err error
 	c.closeOnce.Do(func() {
 		c.fail(ErrClosed)
-		err = c.ws.Close(websocket.StatusNormalClosure, "")
+		err = c.ws.CloseNow()
 		<-c.readDone
 	})
 	return err

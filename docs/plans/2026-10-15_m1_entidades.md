@@ -73,14 +73,14 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] `TestGetConfig_Units`: parseo de `unit_system` desde configuración de HA.
 
 ### Supervisor de Conexión
-- [ ] `TestBackoff_Delay`: cálculo exponencial con jitter y cotas mínima/máxima.
-- [ ] `TestSupervisor_ReconnectsAfterDrop`: reconexión automática tras corte de enlace.
-- [ ] `TestSupervisor_NoHotLoopWhileDown`: espera adecuada de backoff ante servidor caído.
-- [ ] `TestSupervisor_AuthInvalidIsTerminal`: parada inmediata ante credenciales inválidas.
-- [ ] `TestSupervisor_WaitsStartedBeforeSession`: espera a estado RUNNING antes de iniciar sesión.
-- [ ] `TestSupervisor_HeartbeatDetectsFrozenPeer`: corte de sesión ante peer congelado.
-- [ ] `TestSupervisor_ResetsBackoffAfterHealthy`: restablecimiento de backoff tras período sano.
-- [ ] `TestSupervisor_CancelMidBackoffNoLeak`: cancelación limpia de contexto sin fuga de goroutines.
+- [x] `TestBackoff_Delay`: cálculo exponencial con jitter y cotas mínima/máxima.
+- [x] `TestSupervisor_ReconnectsAfterDrop`: reconexión automática tras corte de enlace.
+- [x] `TestSupervisor_NoHotLoopWhileDown`: espera adecuada de backoff ante servidor caído.
+- [x] `TestSupervisor_AuthInvalidIsTerminal`: parada inmediata ante credenciales inválidas.
+- [x] `TestSupervisor_WaitsStartedBeforeSession`: espera a estado RUNNING antes de iniciar sesión.
+- [x] `TestSupervisor_HeartbeatDetectsFrozenPeer`: corte de sesión ante peer congelado.
+- [x] `TestSupervisor_ResetsBackoffAfterHealthy`: restablecimiento de backoff tras período sano.
+- [x] `TestSupervisor_CancelMidBackoffNoLeak`: cancelación limpia de contexto sin fuga de goroutines.
 
 ### Núcleo de `entities` y Adaptadores
 - [ ] `TestAttr_Helpers`: helpers de atributos (tolerancia a NaN, conversiones numéricas, tipos erróneos).
@@ -177,9 +177,9 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] Capturar y versionar fixtures en `edge/internal/entities/testdata/demo-2026.10.1/`.
 
 ### Fase 6: Supervisor de Conexión (`ha/supervisor.go`)
-- [ ] Escribir tests en rojo de reconexión, backoff, jitter y heartbeat.
-- [ ] Implementar `Backoff` y `Supervisor` en `edge/internal/ha/supervisor.go`.
-- [ ] Verificar con `goleak` la ausencia de fugas ante cancelaciones.
+- [x] Escribir tests en rojo de reconexión, backoff, jitter y heartbeat.
+- [x] Implementar `Backoff` y `Supervisor` en `edge/internal/ha/supervisor.go`.
+- [x] Verificar con `goleak` la ausencia de fugas ante cancelaciones.
 
 ### Fase 7: Núcleo de `entities` y Adaptadores de Actuadores
 - [ ] Escribir tests en rojo de helpers de atributos, resolución de nombres, áreas, disponibilidad y riesgo.
@@ -224,4 +224,9 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
   - Fase 4 completada: `CallService`, `Registries`, `EntityDetails`, `Exposed` y `GetConfig` en `edge/internal/ha/`.
   - Fase 5 completada: escenas y scripts en `configuration.yaml`, comando `ha-bootstrap seed` idempotente, herramienta `ha-capture` con sanitización de secretos y fixtures capturadas en `edge/internal/entities/testdata/demo-2026.10.1/`.
   - Estado: listo para iniciar Fase 6 (`Supervisor` de conexión).
+- **[2026-10-15 11:00]**:
+  - Fase 6 completada: `Backoff` con cálculo exponencial y jitter, `Supervisor` en `edge/internal/ha/supervisor.go` gestionando reconexión automática, detección de desconexión abrupta, control de arranque de HA (`WaitStarted`), heartbeat ante peers congelados, terminalidad de credenciales inválidas y restablecimiento de backoff tras período sano.
+  - Validación con `goleak` confirmando cero fugas de goroutines y tests con `-race` en verde.
+  - Estado: listo para iniciar Fase 7 (núcleo de `entities` y adaptadores de actuadores).
+
 
