@@ -62,15 +62,15 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] `TestSubscription_CloseRacesWithEvents`: concurrencia segura entre cierre y emisión.
 - [x] `TestConn_DoneOnDrop`: canal `Done()` notifica desconexión del peer.
 - [x] `TestPing`: latido y detección de estado de conexión.
-- [ ] `TestCallService_Payload`: serialización correcta de `ServiceCall`.
-- [ ] `TestCallService_ReturnResponse`: soporte para llamadas con retorno de datos.
-- [ ] `TestCallService_Errors`: propagación de errores de servicio de HA.
-- [ ] `TestCallService_InvalidInput`: validación de campos obligatorios (`domain`, `service`).
-- [ ] `TestRegistries_Parses`: pipeline de áreas, dispositivos y entidades.
-- [ ] `TestRegistries_AllOrNothing`: fallo total si algún registro del pipeline falla.
-- [ ] `TestEntityDetails_NullEntries`: tolerancia a entradas nulas en `get_entries`.
-- [ ] `TestExposed_FailClosed`: consideración estricta fail-closed en lista de exposición.
-- [ ] `TestGetConfig_Units`: parseo de `unit_system` desde configuración de HA.
+- [x] `TestCallService_Payload`: serialización correcta de `ServiceCall`.
+- [x] `TestCallService_ReturnResponse`: soporte para llamadas con retorno de datos.
+- [x] `TestCallService_Errors`: propagación de errores de servicio de HA.
+- [x] `TestCallService_InvalidInput`: validación de campos obligatorios (`domain`, `service`).
+- [x] `TestRegistries_Parses`: pipeline de áreas, dispositivos y entidades.
+- [x] `TestRegistries_AllOrNothing`: fallo total si algún registro del pipeline falla.
+- [x] `TestEntityDetails_NullEntries`: tolerancia a entradas nulas en `get_entries`.
+- [x] `TestExposed_FailClosed`: consideración estricta fail-closed en lista de exposición.
+- [x] `TestGetConfig_Units`: parseo de `unit_system` desde configuración de HA.
 
 ### Supervisor de Conexión
 - [ ] `TestBackoff_Delay`: cálculo exponencial con jitter y cotas mínima/máxima.
@@ -165,9 +165,9 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] Verificar con `goleak` que no existan fugas de goroutines.
 
 ### Fase 4: Comandos extendidos de `ha`
-- [ ] Escribir tests en rojo para `CallService`, `Registries`, `EntityDetails`, `Exposed`, `GetConfig`.
-- [ ] Implementar métodos en `edge/internal/ha/` (Fase verde).
-- [ ] Verificar manejo de errores y pipeline de registros todo-o-nada.
+- [x] Escribir tests en rojo para `CallService`, `Registries`, `EntityDetails`, `Exposed`, `GetConfig`.
+- [x] Implementar métodos en `edge/internal/ha/` (Fase verde).
+- [x] Verificar manejo de errores y pipeline de registros todo-o-nada.
 
 ### Fase 5: Sembrado (`ha-bootstrap seed`) y Captura (`ha-capture`)
 - [ ] Actualizar `dev/ha-config/configuration.yaml` con escenas (`modo_noche`, `peliculas`) y script (`saludo`).
