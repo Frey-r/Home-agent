@@ -19,6 +19,7 @@ En este proyecto:
 | [ADR-0004](0004-cerebro-edge-nube-cloudflare-relay-durable-objects.md) | Cerebro en el edge, nube delgada en Cloudflare (TypeScript) y relay con Durable Objects | Aceptado | 2026-10-15 | Infraestructura Cloud / Conectividad |
 | [ADR-0005](0005-integracion-ha-via-websocket-api.md) | Integración edge↔Home Assistant vía WebSocket API (no vía MCP Server de HA) | Aceptado | 2026-10-15 | Protocolo edge↔HA |
 | [ADR-0006](0006-persistencia-edge-sqlite-modernc.md) | Persistencia del edge con SQLite (`modernc.org/sqlite`) y migraciones embebidas | Aceptado | 2026-10-15 | Base de datos local |
+| [ADR-0007](0007-contrato-entidad-v1-tools-por-capacidad.md) | Contrato de Entidad Normalizada v1 y Tools por Capacidad | Aceptado | 2026-10-15 | Contratos, Entidades y Cliente HA |
 
 ---
 

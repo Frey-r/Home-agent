@@ -7,6 +7,7 @@ Este directorio almacena el historial y estado de todos los planes de trabajo, t
 | ID del Plan | Título / Objetivo | Estado | Fecha Inicio | Última Actualización |
 | :--- | :--- | :--- | :--- | :--- |
 | [2026-10-15_roadmap_producto](2026-10-15_roadmap_producto.md) | Roadmap maestro: Fases 0–2, milestones M0–M11 | En Progreso | 2026-10-15 | 2026-10-15 |
+| [2026-10-15_m1_entidades](2026-10-15_m1_entidades.md) | M1: entidades normalizadas v1 y cliente HA completo | En Progreso | 2026-10-15 | 2026-10-15 |
 
 ---
 

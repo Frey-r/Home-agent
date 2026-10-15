@@ -70,7 +70,7 @@ Cada milestone define en su plan los tests que se escriben en rojo antes de impl
 
 ### Fase 0: Dogfooding en casa (sin nube; LLM con API key de dev)
 - [x] **M0**: Fundaciones (completado el 2026-10-15). Plan: [2026-10-15_m0_fundaciones.md](2026-10-15_m0_fundaciones.md). Incluye monorepo, config, store, cliente HA base, compose de HA demo y CI.
-- [ ] **M1**: Cliente HA completo y entidades normalizadas v1. Requiere ADR-0007 (contrato de entidad y tools por capacidad).
+- [ ] **M1**: Cliente HA completo y entidades normalizadas v1. Plan: [2026-10-15_m1_entidades.md](2026-10-15_m1_entidades.md). Requiere [ADR-0007](../adr/0007-contrato-entidad-v1-tools-por-capacidad.md).
 - [ ] **M2a**: `llmkit`, el proveedor de LLM como commodity con formatos OpenAI y Anthropic. Requiere ADR-0008.
 - [ ] **M2b**: Tools, agente, guardrails L0–L3 y L5, CLI `edge-core chat` y evals. Requiere ADR-0009 (modelo de seguridad).
 - [ ] **M3**: Identidad, Telegram por long polling, confirmaciones con botones y auditoría.
