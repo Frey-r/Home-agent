@@ -1,0 +1,484 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domotica.local/schemas/entity.v1.json",
+  "title": "Normalized Entity v1",
+  "type": "object",
+  "required": [
+    "id",
+    "source",
+    "name",
+    "aliases",
+    "category",
+    "exposed",
+    "risk",
+    "state",
+    "capabilities"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ha:[a-z0-9_]+\\.[a-z0-9_]+$"
+    },
+    "source": {
+      "type": "object",
+      "required": ["kind", "entity_id"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "type": "string", "enum": ["ha", "home_assistant"] },
+        "entity_id": { "type": "string" },
+        "device_id": { "type": ["string", "null"] }
+      }
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "light",
+        "switch",
+        "cover",
+        "lock",
+        "alarm_control_panel",
+        "climate",
+        "media_player",
+        "sensor",
+        "binary_sensor",
+        "scene",
+        "script",
+        "todo",
+        "weather"
+      ]
+    },
+    "device_class": {
+      "type": ["string", "null"]
+    },
+    "area": {
+      "type": ["object", "null"],
+      "required": ["id", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "exposed": {
+      "type": "boolean"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "risk": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "last_changed": {
+      "type": "string"
+    },
+    "state": {
+      "type": "object"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/capability"
+      }
+    }
+  },
+  "$defs": {
+    "capability": {
+      "type": "object",
+      "required": ["action", "kind", "risk", "requires_code", "params"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["command", "query"]
+        },
+        "risk": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "requires_code": {
+          "type": "boolean"
+        },
+        "params": {
+          "type": "object",
+          "required": ["type", "additionalProperties"],
+          "properties": {
+            "type": { "const": "object" },
+            "properties": { "type": "object" },
+            "required": { "type": "array", "items": { "type": "string" } },
+            "additionalProperties": { "const": false }
+          },
+          "not": {
+            "anyOf": [
+              { "required": ["oneOf"] },
+              { "required": ["anyOf"] },
+              { "required": ["allOf"] }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "category": { "const": "light" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "power": { "type": "string", "enum": ["on", "off"] },
+              "brightness_pct": { "type": "integer", "minimum": 1, "maximum": 100 },
+              "color_temp_k": { "type": "integer", "minimum": 1000, "maximum": 10000 },
+              "rgb": {
+                "type": "array",
+                "items": { "type": "integer", "minimum": 0, "maximum": 255 },
+                "minItems": 3,
+                "maxItems": 3
+              }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": {
+                  "enum": ["set_power", "set_brightness", "set_color_temp", "set_color"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "switch" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "power": { "type": "string", "enum": ["on", "off"] }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": { "enum": ["set_power"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "climate" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "power": { "type": "string", "enum": ["on", "off"] },
+              "hvac_mode": { "type": "string" },
+              "hvac_action": { "type": "string" },
+              "target_temp": { "type": "number" },
+              "target_temp_low": { "type": "number" },
+              "target_temp_high": { "type": "number" },
+              "current_temp": { "type": "number" },
+              "current_humidity": { "type": "number" },
+              "fan_mode": { "type": "string" },
+              "preset_mode": { "type": "string" },
+              "temp_unit": { "type": "string" }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": {
+                  "enum": [
+                    "set_power",
+                    "set_hvac_mode",
+                    "set_temperature",
+                    "set_temperature_range",
+                    "set_fan_mode",
+                    "set_preset_mode"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "cover" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": ["open", "closed", "opening", "closing", "stopped"]
+              },
+              "position_pct": { "type": "integer", "minimum": 0, "maximum": 100 }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": { "enum": ["open", "close", "set_position", "stop"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "lock" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": ["locked", "unlocked", "locking", "unlocking", "jammed"]
+              }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": { "enum": ["lock", "unlock", "unlatch"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "alarm_control_panel" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "disarmed",
+                  "armed_home",
+                  "armed_away",
+                  "armed_night",
+                  "armed_vacation",
+                  "armed_custom_bypass",
+                  "arming",
+                  "disarming",
+                  "triggered",
+                  "pending"
+                ]
+              }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": { "enum": ["arm", "disarm"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "media_player" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "power": { "type": "string", "enum": ["on", "off"] },
+              "status": {
+                "type": "string",
+                "enum": ["playing", "paused", "idle", "off", "standby", "buffering"]
+              },
+              "volume_pct": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "muted": { "type": "boolean" },
+              "source": { "type": "string" },
+              "media_title": { "type": "string" },
+              "media_artist": { "type": "string" }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": {
+                  "enum": ["set_power", "playback", "set_volume", "set_mute", "select_source"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "sensor" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "value": { "type": ["number", "string"] },
+              "unit": { "type": "string" }
+            }
+          },
+          "capabilities": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "binary_sensor" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "active": { "type": "boolean" }
+            }
+          },
+          "capabilities": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "scene" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "last_activated": { "type": "string" },
+              "members": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": { "enum": ["activate"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "script" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "running": { "type": "boolean" },
+              "last_triggered": { "type": "string" }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": { "enum": ["run"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "todo" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "open_items": { "type": "integer", "minimum": 0 }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": {
+                  "enum": ["add_item", "complete_item", "remove_item", "list_items"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "category": { "const": "weather" } } },
+      "then": {
+        "properties": {
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "condition": { "type": "string" },
+              "temperature": { "type": "number" },
+              "temp_unit": { "type": "string" },
+              "humidity": { "type": "number" },
+              "wind_speed": { "type": "number" },
+              "wind_speed_unit": { "type": "string" },
+              "pressure": { "type": "number" },
+              "pressure_unit": { "type": "string" }
+            }
+          },
+          "capabilities": {
+            "items": {
+              "properties": {
+                "action": { "enum": ["get_forecast"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

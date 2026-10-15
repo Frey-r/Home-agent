@@ -45,11 +45,11 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 ## 3. Estrategia de Pruebas Primero (TDD)
 
 ### Módulo `contracts`
-- [ ] `TestSchemas_Compile`: compilación de esquemas JSON embebidos.
-- [ ] `TestEntitySchema_ValidFixtures`: fixture válido para cada uno de los 13 dominios.
-- [ ] `TestEntitySchema_InvalidFixtures`: tabla de casos inválidos (id sin `ha:`, riesgo inválido, luz con `unlock`, `oneOf`, `additionalProperties: true`, alias `null`, etc.).
-- [ ] `TestValidator_ErrorHasPointer`: validación de punteros JSON en errores de validación.
-- [ ] `TestValidateParams`: validación de parámetros de capacidad contra el esquema definido.
+- [x] `TestSchemas_Compile`: compilación de esquemas JSON embebidos.
+- [x] `TestEntitySchema_ValidFixtures`: fixture válido para cada uno de los 13 dominios.
+- [x] `TestEntitySchema_InvalidFixtures`: tabla de casos inválidos (id sin `ha:`, riesgo inválido, luz con `unlock`, `oneOf`, `additionalProperties: true`, alias `null`, etc.).
+- [x] `TestValidator_ErrorHasPointer`: validación de punteros JSON en errores de validación.
+- [x] `TestValidateParams`: validación de parámetros de capacidad contra el esquema definido.
 
 ### Paquete `ha` y simulador `hatest` v2
 - [ ] `TestSubscribeEvents_DeliversInOrder`: entrega secuencial de eventos por suscripción.
@@ -152,11 +152,11 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] Registrar plan en `docs/plans/README.md` y actualizar `roadmap_producto.md`.
 
 ### Fase 2: Módulo `contracts`
-- [ ] Inicializar módulo `contracts/` (`go.mod`, `contracts.go`, `contracts_test.go`).
-- [ ] Definir `contracts/schemas/entity.v1.json` y compilar esquemas con `jsonschema-go`.
-- [ ] Escribir tests en rojo (`TestSchemas_Compile`, `TestEntitySchema_*`, `TestValidator_*`, `TestValidateParams`).
-- [ ] Implementar validador de entidades y parámetros (Fase verde).
-- [ ] Integrar `contracts` en `go.work` y `edge/go.mod`.
+- [x] Inicializar módulo `contracts/` (`go.mod`, `contracts.go`, `contracts_test.go`).
+- [x] Definir `contracts/schemas/entity.v1.json` y compilar esquemas con `jsonschema-go`.
+- [x] Escribir tests en rojo (`TestSchemas_Compile`, `TestEntitySchema_*`, `TestValidator_*`, `TestValidateParams`).
+- [x] Implementar validador de entidades y parámetros (Fase verde).
+- [x] Integrar `contracts` en `go.work` y `edge/go.mod`.
 
 ### Fase 3: Simulador `hatest` v2 y Eventos en `ha`
 - [ ] Extender `hatest` con soporte de estado mutable, ráfagas, congelamiento y desconexión.

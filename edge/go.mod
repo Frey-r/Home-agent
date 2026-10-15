@@ -3,9 +3,12 @@ module github.com/Frey-r/Home-agent/edge
 go 1.27.0
 
 require (
+	github.com/Frey-r/Home-agent/contracts v0.0.0
 	github.com/coder/websocket v1.8.15
 	modernc.org/sqlite v1.60.1
 )
+
+replace github.com/Frey-r/Home-agent/contracts => ../contracts
 
 require (
 	github.com/dustin/go-humanize v1.0.1 // indirect
