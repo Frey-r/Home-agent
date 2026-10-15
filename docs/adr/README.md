@@ -20,6 +20,7 @@ En este proyecto:
 | [ADR-0005](0005-integracion-ha-via-websocket-api.md) | Integración edge↔Home Assistant vía WebSocket API (no vía MCP Server de HA) | Aceptado | 2026-10-15 | Protocolo edge↔HA |
 | [ADR-0006](0006-persistencia-edge-sqlite-modernc.md) | Persistencia del edge con SQLite (`modernc.org/sqlite`) y migraciones embebidas | Aceptado | 2026-10-15 | Base de datos local |
 | [ADR-0007](0007-contrato-entidad-v1-tools-por-capacidad.md) | Contrato de Entidad Normalizada v1 y Tools por Capacidad | Aceptado | 2026-10-15 | Contratos, Entidades y Cliente HA |
+| [ADR-0008](0008-llmkit-formato-neutro-adaptadores-openai-anthropic.md) | Abstracción de LLM Commodity con llmkit, Formato Neutro y Adaptadores OpenAI/Anthropic | Aceptado | 2026-10-15 | Capa de LLM, Formatos Wire y Router |
 
 ---
 
