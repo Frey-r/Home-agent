@@ -69,7 +69,7 @@ Cada milestone define en su plan los tests que se escriben en rojo antes de impl
 ## 4. Fases de Ejecución y Tareas
 
 ### Fase 0: Dogfooding en casa (sin nube; LLM con API key de dev)
-- [ ] **M0**: Fundaciones. Plan: [2026-10-15_m0_fundaciones.md](2026-10-15_m0_fundaciones.md). Incluye monorepo, config, store, cliente HA base, compose de HA demo y CI.
+- [x] **M0**: Fundaciones (completado el 2026-10-15). Plan: [2026-10-15_m0_fundaciones.md](2026-10-15_m0_fundaciones.md). Incluye monorepo, config, store, cliente HA base, compose de HA demo y CI.
 - [ ] **M1**: Cliente HA completo y entidades normalizadas v1. Requiere ADR-0007 (contrato de entidad y tools por capacidad).
 - [ ] **M2a**: `llmkit`, el proveedor de LLM como commodity con formatos OpenAI y Anthropic. Requiere ADR-0008.
 - [ ] **M2b**: Tools, agente, guardrails L0–L3 y L5, CLI `edge-core chat` y evals. Requiere ADR-0009 (modelo de seguridad).
@@ -102,6 +102,7 @@ Cada milestone define en su plan los tests que se escriben en rojo antes de impl
   - Se aprobó el diseño completo; está en [docs/arquitectura.md](../arquitectura.md) y en los ADRs 0003 a 0006. AGENTS.md se actualizó solo en sus partes descriptivas, sin tocar los mandatos.
   - Se instaló el toolchain: Go 1.24.1 → 1.27.0 y WinLibs gcc 16.2. Se verificó que `go test -race` funciona en Windows.
   - Se inicia M0.
+- **[2026-10-15]**: M0 completado. Hay un cliente WS de HA, store SQLite y `edge-core run --once` validado contra HA 2026.10.1 real (123 entidades del demo). **Siguiente: M1**, que requiere escribir antes el ADR-0007 y el plan `docs/plans/YYYY-MM-DD_m1_entidades.md`.
 
 ### Preguntas abiertas (no bloquean M0–M3)
 

@@ -1,0 +1,50 @@
+name: edge
+
+on:
+  push:
+    paths: ["edge/**", "go.work", "dev/**", ".github/workflows/edge.yml"]
+  pull_request:
+    paths: ["edge/**", "go.work", "dev/**", ".github/workflows/edge.yml"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: edge/go.mod
+          cache-dependency-path: edge/go.sum
+      - name: go vet
+        working-directory: edge
+        run: go vet ./...
+      - name: go test -race (Mandato I)
+        working-directory: edge
+        run: go test -v -race -count=1 ./...
+      - name: build estático multi-arch (CGO_ENABLED=0)
+        working-directory: edge
+        run: |
+          for arch in amd64 arm64; do
+            CGO_ENABLED=0 GOOS=linux GOARCH=$arch go build -trimpath -o /tmp/edge-core-$arch ./cmd/edge-core
+          done
+
+  integration:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: edge/go.mod
+          cache-dependency-path: edge/go.sum
+      - name: levantar Home Assistant demo
+        run: docker compose -f dev/docker-compose.yml up -d
+      - name: onboarding + token (ha-bootstrap)
+        run: go run ./edge/cmd/ha-bootstrap -wait 5m
+      - name: tests de integración
+        run: |
+          set -a; . dev/.env; set +a
+          cd edge && go test -v -race -count=1 -tags integration ./integration/...
+      - name: logs de HA
+        if: failure()
+        run: docker logs domotica-ha 2>&1 | tail -n 200

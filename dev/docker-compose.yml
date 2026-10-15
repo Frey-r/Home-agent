@@ -1,0 +1,17 @@
+# Home Assistant de desarrollo con la integración demo (luces, cerraduras,
+# cortinas/garage, clima, media players...). Ver dev/README.md.
+name: domotica-dev
+
+services:
+  homeassistant:
+    # Versión fijada: subirla es un cambio deliberado (la CI ha-matrix prueba
+    # stable, la anterior y beta).
+    image: ghcr.io/home-assistant/home-assistant:2026.10.1
+    container_name: domotica-ha
+    ports:
+      - "8123:8123"
+    volumes:
+      - ./ha-config:/config
+    environment:
+      TZ: America/Santiago
+    restart: unless-stopped

@@ -1,0 +1,16 @@
+# Configuración mínima de HA para desarrollo de edge-core.
+# Solo este archivo se versiona; el resto de dev/ha-config/ (.storage, logs)
+# lo genera HA y está en .gitignore.
+homeassistant:
+  name: Casa Dev
+  time_zone: America/Santiago
+  country: CL
+  language: es
+  unit_system: metric
+  currency: CLP
+
+# frontend arrastra api, auth, onboarding y websocket_api.
+frontend:
+
+# Entidades de ejemplo de todos los dominios relevantes para el agente.
+demo:

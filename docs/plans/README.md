@@ -7,7 +7,6 @@ Este directorio almacena el historial y estado de todos los planes de trabajo, t
 | ID del Plan | Título / Objetivo | Estado | Fecha Inicio | Última Actualización |
 | :--- | :--- | :--- | :--- | :--- |
 | [2026-10-15_roadmap_producto](2026-10-15_roadmap_producto.md) | Roadmap maestro: Fases 0–2, milestones M0–M11 | En Progreso | 2026-10-15 | 2026-10-15 |
-| [2026-10-15_m0_fundaciones](2026-10-15_m0_fundaciones.md) | M0: monorepo, config, store, cliente HA base, entorno dev | En Progreso | 2026-10-15 | 2026-10-15 |
 
 ---
 
@@ -15,7 +14,7 @@ Este directorio almacena el historial y estado de todos los planes de trabajo, t
 
 | ID del Plan | Título | Fecha Completado | ADRs Asociados |
 | :--- | :--- | :--- | :--- |
-| *(Aún no hay planes completados)* | - | - | - |
+| [2026-10-15_m0_fundaciones](2026-10-15_m0_fundaciones.md) | M0: monorepo, config, store, cliente HA base, entorno dev | 2026-10-15 | ADR-0005, ADR-0006 |
 
 ---
 

@@ -1,7 +1,7 @@
 # Plan: M0 Fundaciones (monorepo, config, store, cliente HA base, entorno dev)
 
 - **ID del Plan**: `2026-10-15_m0_fundaciones`
-- **Estado**: En Progreso
+- **Estado**: Completado
 - **Fecha de Creación**: 2026-10-15
 - **Última Actualización**: 2026-10-15
 - **ADR Relacionado**:
@@ -149,19 +149,30 @@ Todos los tests son table-driven cuando aplica y se validan con `go test -v -rac
 - [x] Correr `dev/scripts/test.ps1` y confirmar que todo queda en verde con `-race`.
 
 ### Fase 3: Refactorización y Calidad
-- [ ] `go vet` limpio y revisión de errores descartados (ninguno sin justificar).
-- [ ] Crear `dev/docker-compose.yml` (HA fijado a una versión, `demo:`, tz `America/Santiago`) y `dev/ha-config/`.
-- [ ] Ejecutar `ha-bootstrap`, que genera `dev/.env` (gitignored).
-- [ ] Hacer pasar `TestRealHA_Demo` con `-tags integration`.
-- [ ] Smoke manual: `edge-core run --once` contra el HA del compose.
-- [ ] Crear `.github/workflows/edge.yml` (Linux, `go vet` y `go test -race`).
+- [x] `go vet` limpio y revisión de errores descartados (todos los `_ =` llevan comentario de justificación).
+- [x] Refactor: `ha.Command` rechaza comandos sin `type` (antes entraba en pánico con `nil`). Lo cubre `TestCommand_InvalidInput`, que se escribió primero y falló en rojo.
+- [x] Crear `dev/docker-compose.yml` (HA **2026.10.1** fijado, `demo:`, tz `America/Santiago`) y `dev/ha-config/configuration.yaml`.
+- [x] Ejecutar `ha-bootstrap`, que genera `dev/.env` (gitignored). Funcionó al primer intento contra el HA real, incluidos los pasos opcionales de onboarding.
+- [x] Hacer pasar `TestRealHA_Demo` con `-tags integration`: 123 entidades en 40 dominios.
+- [x] Smoke manual con `CGO_ENABLED=0`: `edge-core run --once` registró en el log `ha_version=2026.10.1 entities=123`.
+- [x] Cross-compile estático para linux/amd64 (10,9 MB) y linux/arm64 (10,4 MB).
+- [x] Crear `.github/workflows/edge.yml` con dos jobs: `test` (vet, `-race`, build multi-arch) e `integration` (HA en Docker, `ha-bootstrap`, `-tags integration`). **No se ha ejecutado**, porque el repo todavía no tiene remoto.
 
 ### Fase 4: Documentación y Cierre
-- [ ] Crear `dev/README.md` explicando cómo levantar HA, hacer el bootstrap y correr los tests.
-- [ ] Actualizar este plan y el roadmap, y marcar M0 como completado en `docs/plans/README.md`.
+- [x] Crear `dev/README.md` explicando cómo levantar HA, hacer el bootstrap y correr los tests.
+- [x] Actualizar este plan y el roadmap, y marcar M0 como completado en `docs/plans/README.md`.
 
 ---
 
 ## 5. Bitácora de Progreso y Memoria de Sesiones
 
 - **[2026-10-15]**: Plan creado. Toolchain verificado: Go 1.27.0 y gcc 16.2 (WinLibs UCRT); `-race` funciona.
+- **[2026-10-15]**: M0 completado. Commits: `test(edge)` (rojo) → `feat(edge)` (verde) → `refactor(edge)` → `chore(dev)` (cierre).
+  - **Desviaciones respecto al plan**:
+    - El módulo `contracts` se crea en M1, junto con `entity.v1.json`, para no dejar un módulo vacío.
+    - `golangci-lint` no está configurado; se usa `go vet`, que AGENTS.md §4 permite. Queda pendiente agregarlo en CI cuando haya remoto.
+    - `config` agrega `DefaultAddonDataDir=/data` para el modo `addon`.
+  - **Notas para M1**:
+    - El demo de HA expone `calendar`, `todo` y `weather`, que sirven para el brief de M4.
+    - El cliente ya tiene `Command` genérico. M1 suma la suscripción a eventos (`readLoop` hoy ignora todo lo que no sea `result`), `call_service`, los registros y la reconexión con resync.
+  - **Entorno**: Docker Desktop mostró un aviso de WSL al arrancar, pero WSL 2 (`Ubuntu`, `docker-desktop`) quedó en `Running` y los contenedores funcionan.
