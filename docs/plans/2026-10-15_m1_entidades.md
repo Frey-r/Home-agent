@@ -52,16 +52,16 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] `TestValidateParams`: validación de parámetros de capacidad contra el esquema definido.
 
 ### Paquete `ha` y simulador `hatest` v2
-- [ ] `TestSubscribeEvents_DeliversInOrder`: entrega secuencial de eventos por suscripción.
-- [ ] `TestSubscribeEvents_FanIn`: múltiples suscriptores simultáneos.
-- [ ] `TestSubscribeEvents_EventInSameFrameAsResult`: manejo de evento recibido en el mismo frame que la respuesta a la suscripción.
-- [ ] `TestReadLoop_CoalescedArray`: soporte de mensajes WebSocket agrupados en array JSON.
-- [ ] `TestConnect_NegotiatesCoalescing`: negociación del header `coalesce_messages`.
-- [ ] `TestSubscription_SlowConsumerOverflow`: detección de consumidor lento con `ErrSlowConsumer`.
-- [ ] `TestSubscription_ClosedOnDrop`: cierre limpio de suscripción ante desconexión.
-- [ ] `TestSubscription_CloseRacesWithEvents`: concurrencia segura entre cierre y emisión.
-- [ ] `TestConn_DoneOnDrop`: canal `Done()` notifica desconexión del peer.
-- [ ] `TestPing`: latido y detección de estado de conexión.
+- [x] `TestSubscribeEvents_DeliversInOrder`: entrega secuencial de eventos por suscripción.
+- [x] `TestSubscribeEvents_FanIn`: múltiples suscriptores simultáneos.
+- [x] `TestSubscribeEvents_EventInSameFrameAsResult`: manejo de evento recibido en el mismo frame que la respuesta a la suscripción.
+- [x] `TestReadLoop_CoalescedArray`: soporte de mensajes WebSocket agrupados en array JSON.
+- [x] `TestConnect_NegotiatesCoalescing`: negociación del header `coalesce_messages`.
+- [x] `TestSubscription_SlowConsumerOverflow`: detección de consumidor lento con `ErrSlowConsumer`.
+- [x] `TestSubscription_ClosedOnDrop`: cierre limpio de suscripción ante desconexión.
+- [x] `TestSubscription_CloseRacesWithEvents`: concurrencia segura entre cierre y emisión.
+- [x] `TestConn_DoneOnDrop`: canal `Done()` notifica desconexión del peer.
+- [x] `TestPing`: latido y detección de estado de conexión.
 - [ ] `TestCallService_Payload`: serialización correcta de `ServiceCall`.
 - [ ] `TestCallService_ReturnResponse`: soporte para llamadas con retorno de datos.
 - [ ] `TestCallService_Errors`: propagación de errores de servicio de HA.
@@ -159,10 +159,10 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] Integrar `contracts` en `go.work` y `edge/go.mod`.
 
 ### Fase 3: Simulador `hatest` v2 y Eventos en `ha`
-- [ ] Extender `hatest` con soporte de estado mutable, ráfagas, congelamiento y desconexión.
-- [ ] Escribir tests en rojo de eventos y suscripciones WebSocket en `ha/`.
-- [ ] Implementar `SubscribeEvents`, decodificación de eventos, soporte de arrays coalescentes y manejo de `slow_consumer`.
-- [ ] Verificar con `goleak` que no existan fugas de goroutines.
+- [x] Extender `hatest` con soporte de estado mutable, ráfagas, congelamiento y desconexión.
+- [x] Escribir tests en rojo de eventos y suscripciones WebSocket en `ha/`.
+- [x] Implementar `SubscribeEvents`, decodificación de eventos, soporte de arrays coalescentes y manejo de `slow_consumer`.
+- [x] Verificar con `goleak` que no existan fugas de goroutines.
 
 ### Fase 4: Comandos extendidos de `ha`
 - [ ] Escribir tests en rojo para `CallService`, `Registries`, `EntityDetails`, `Exposed`, `GetConfig`.
