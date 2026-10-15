@@ -1,0 +1,151 @@
+{
+  "exposed_entities": {
+    "alarm_control_panel.alarm": {
+      "conversation": true
+    },
+    "binary_sensor.movement_backyard": {
+      "conversation": true
+    },
+    "climate.ecobee": {
+      "conversation": true
+    },
+    "climate.heatpump": {
+      "conversation": true
+    },
+    "climate.hvac": {
+      "conversation": true
+    },
+    "cover.garage_door": {
+      "conversation": true
+    },
+    "cover.hall_window": {
+      "conversation": true
+    },
+    "cover.kitchen_window": {
+      "conversation": true
+    },
+    "cover.living_room_window": {
+      "conversation": true
+    },
+    "cover.pergola_roof": {
+      "conversation": true
+    },
+    "fan.ceiling_fan": {
+      "conversation": true
+    },
+    "fan.living_room_fan": {
+      "conversation": true
+    },
+    "fan.percentage_full_fan": {
+      "conversation": true
+    },
+    "fan.percentage_limited_fan": {
+      "conversation": true
+    },
+    "fan.preset_only_limited_fan": {
+      "conversation": true
+    },
+    "humidifier.dehumidifier": {
+      "conversation": true
+    },
+    "humidifier.humidifier": {
+      "conversation": true
+    },
+    "humidifier.hygrostat": {
+      "conversation": true
+    },
+    "light.bed_light": {
+      "conversation": true
+    },
+    "light.ceiling_lights": {
+      "conversation": true
+    },
+    "light.entrance_color_white_lights": {
+      "conversation": true
+    },
+    "light.kitchen_lights": {
+      "conversation": true
+    },
+    "light.living_room_rgbww_lights": {
+      "conversation": true
+    },
+    "light.office_rgbw_lights": {
+      "conversation": true
+    },
+    "lock.front_door": {
+      "conversation": true
+    },
+    "media_player.bedroom": {
+      "conversation": true
+    },
+    "media_player.browse": {
+      "conversation": true
+    },
+    "media_player.group": {
+      "conversation": true
+    },
+    "media_player.kitchen": {
+      "conversation": true
+    },
+    "media_player.living_room": {
+      "conversation": true
+    },
+    "media_player.lounge_room": {
+      "conversation": true
+    },
+    "media_player.search": {
+      "conversation": true
+    },
+    "media_player.walkman": {
+      "conversation": true
+    },
+    "script.saludo": {
+      "conversation": true
+    },
+    "sensor.carbon_dioxide": {
+      "conversation": true
+    },
+    "sensor.carbon_monoxide": {
+      "conversation": true
+    },
+    "sensor.outside_humidity": {
+      "conversation": true
+    },
+    "sensor.outside_temperature": {
+      "conversation": true
+    },
+    "switch.ac": {
+      "conversation": true
+    },
+    "switch.decorative_lights": {
+      "conversation": true
+    },
+    "todo.lista_de_la_compra": {
+      "conversation": true
+    },
+    "vacuum.demo_vacuum_0_ground_floor": {
+      "conversation": true
+    },
+    "vacuum.demo_vacuum_1_first_floor": {
+      "conversation": true
+    },
+    "vacuum.demo_vacuum_2_second_floor": {
+      "conversation": true
+    },
+    "vacuum.demo_vacuum_3_third_floor": {
+      "conversation": true
+    },
+    "vacuum.demo_vacuum_4_fourth_floor": {
+      "conversation": true
+    },
+    "water_heater.demo_water_heater": {
+      "conversation": true
+    },
+    "water_heater.demo_water_heater_celsius": {
+      "conversation": true
+    },
+    "weather.demo": {
+      "conversation": true
+    }
+  }
+}

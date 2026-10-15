@@ -23,6 +23,51 @@ import (
 )
 
 func main() {
+	if len(os.Args) > 1 && os.Args[1] == "seed" {
+		fs := flag.NewFlagSet("seed", flag.ExitOnError)
+		base := fs.String("url", "http://localhost:8123", "URL base de Home Assistant")
+		token := fs.String("token", "", "Token de larga duración (o lee dev/.env o DOMOTICA_HA_TOKEN)")
+		_ = fs.Parse(os.Args[2:])
+
+		if *token == "" {
+			*token = os.Getenv("DOMOTICA_HA_TOKEN")
+		}
+		if *token == "" {
+			envPath := filepath.Join("dev", ".env")
+			if data, err := os.ReadFile(envPath); err == nil {
+				for _, line := range strings.Split(string(data), "\n") {
+					line = strings.TrimSpace(line)
+					if strings.HasPrefix(line, "DOMOTICA_HA_TOKEN=") {
+						*token = strings.TrimPrefix(line, "DOMOTICA_HA_TOKEN=")
+					}
+					if *base == "http://localhost:8123" && strings.HasPrefix(line, "DOMOTICA_HA_URL=") {
+						*base = strings.TrimPrefix(line, "DOMOTICA_HA_URL=")
+					}
+				}
+			}
+		}
+		if *token == "" {
+			fmt.Fprintln(os.Stderr, "ha-bootstrap seed: falta el token (ejecuta ha-bootstrap primero o especifica -token)")
+			os.Exit(1)
+		}
+
+		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+		defer cancel()
+
+		conn, err := ha.Connect(ctx, wsURL(*base), *token)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ha-bootstrap seed: conexión fallida: %v\n", err)
+			os.Exit(1)
+		}
+		defer conn.Close()
+
+		if err := runSeed(ctx, conn); err != nil {
+			fmt.Fprintf(os.Stderr, "ha-bootstrap seed: %v\n", err)
+			os.Exit(1)
+		}
+		return
+	}
+
 	base := flag.String("url", "http://localhost:8123", "URL base de Home Assistant")
 	user := flag.String("user", "dev", "usuario owner a crear")
 	pass := flag.String("password", "dev-password", "contraseña del usuario owner")
@@ -157,6 +202,11 @@ func bootstrap(ctx context.Context, baseURL, username, password string, client *
 	if err := json.Unmarshal(raw, &token); err != nil || token == "" {
 		return "", fmt.Errorf("respuesta inesperada al crear token de larga duración: %s", raw)
 	}
+
+	if err := runSeed(ctx, conn); err != nil {
+		slog.Warn("sembrado inicial falló", "err", err)
+	}
+
 	return token, nil
 }
 
@@ -237,6 +287,9 @@ func writeEnvFile(path, baseURL, token string) error {
 // wsURL convierte la URL base HTTP(S) de HA en la del endpoint WebSocket.
 func wsURL(baseURL string) string {
 	u := strings.TrimRight(baseURL, "/")
+	if strings.HasSuffix(u, "/api/websocket") {
+		return u
+	}
 	switch {
 	case strings.HasPrefix(u, "https://"):
 		u = "wss://" + strings.TrimPrefix(u, "https://")

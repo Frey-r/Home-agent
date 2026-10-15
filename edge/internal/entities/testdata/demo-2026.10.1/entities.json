@@ -1,0 +1,2503 @@
+[
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": null,
+    "config_subentry_id": null,
+    "created_at": 1792038634.804778,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "person.dev",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "80b95de5c0ce7cf5ce44f0963d5ad4d2",
+    "labels": [],
+    "modified_at": 1792038637.329881,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Dev",
+    "platform": "person",
+    "translation_key": null,
+    "unique_id": "dev"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72PDP9WG47N6DREAB0F4",
+    "config_subentry_id": null,
+    "created_at": 1792038636.543291,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "todo.lista_de_la_compra",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "7c822332c752fa3f80d5e0ece7ce635d",
+    "labels": [],
+    "modified_at": 1792038637.329949,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": "Lista de la compra",
+    "platform": "shopping_list",
+    "translation_key": "shopping_list",
+    "unique_id": "01M4YX72PDP9WG47N6DREAB0F4"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72Y68H7D906MVT9GQ4XX",
+    "config_subentry_id": null,
+    "created_at": 1792038636.561153,
+    "device_id": "2f69e1be14c097e4ab6fbd63fd352712",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "tts.google_translate_en_com",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "8c26c51003056bce050aeccb65896779",
+    "labels": [],
+    "modified_at": 1792038637.329981,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "",
+    "platform": "google_translate",
+    "translation_key": null,
+    "unique_id": "01M4YX72Y68H7D906MVT9GQ4XX"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX730S3B7M4KATPRH61QR6",
+    "config_subentry_id": null,
+    "created_at": 1792038636.570377,
+    "device_id": "690bae628099b6ac626ccb303ee0fee3",
+    "disabled_by": "integration",
+    "entity_category": "diagnostic",
+    "entity_id": "binary_sensor.sun_solar_rising",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "60a6ef044bbf8db6df5c5d0b64609e52",
+    "labels": [],
+    "modified_at": 1792038636.570418,
+    "name": null,
+    "next_name_part": "device",
+    "options": {},
+    "original_name": "Salida del sol",
+    "platform": "sun",
+    "translation_key": "solar_rising",
+    "unique_id": "01M4YX730S3B7M4KATPRH61QR6-solar_rising"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX730S3B7M4KATPRH61QR6",
+    "config_subentry_id": null,
+    "created_at": 1792038636.570719,
+    "device_id": "690bae628099b6ac626ccb303ee0fee3",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.sun_next_dawn",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "4d45c65f1aea69a012b966a05298b6e7",
+    "labels": [],
+    "modified_at": 1792038637.330012,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Próximo amanecer",
+    "platform": "sun",
+    "translation_key": "next_dawn",
+    "unique_id": "01M4YX730S3B7M4KATPRH61QR6-next_dawn"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX730S3B7M4KATPRH61QR6",
+    "config_subentry_id": null,
+    "created_at": 1792038636.570954,
+    "device_id": "690bae628099b6ac626ccb303ee0fee3",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.sun_next_dusk",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "926e9287366a2cd7b7e65e2f065e2964",
+    "labels": [],
+    "modified_at": 1792038637.330037,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Próximo anochecer",
+    "platform": "sun",
+    "translation_key": "next_dusk",
+    "unique_id": "01M4YX730S3B7M4KATPRH61QR6-next_dusk"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX730S3B7M4KATPRH61QR6",
+    "config_subentry_id": null,
+    "created_at": 1792038636.571157,
+    "device_id": "690bae628099b6ac626ccb303ee0fee3",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.sun_next_midnight",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "13c7293629bd9b695fc051bb184af3f5",
+    "labels": [],
+    "modified_at": 1792038637.330059,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Próxima medianoche",
+    "platform": "sun",
+    "translation_key": "next_midnight",
+    "unique_id": "01M4YX730S3B7M4KATPRH61QR6-next_midnight"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX730S3B7M4KATPRH61QR6",
+    "config_subentry_id": null,
+    "created_at": 1792038636.571332,
+    "device_id": "690bae628099b6ac626ccb303ee0fee3",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.sun_next_noon",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "557b04ee8588d52b3268001351d5a51f",
+    "labels": [],
+    "modified_at": 1792038637.330079,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Próximo mediodía",
+    "platform": "sun",
+    "translation_key": "next_noon",
+    "unique_id": "01M4YX730S3B7M4KATPRH61QR6-next_noon"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX730S3B7M4KATPRH61QR6",
+    "config_subentry_id": null,
+    "created_at": 1792038636.571505,
+    "device_id": "690bae628099b6ac626ccb303ee0fee3",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.sun_next_rising",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "beeea7d9e831966b63e6d431cfa4fe86",
+    "labels": [],
+    "modified_at": 1792038637.330098,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Próxima salida del sol",
+    "platform": "sun",
+    "translation_key": "next_rising",
+    "unique_id": "01M4YX730S3B7M4KATPRH61QR6-next_rising"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX730S3B7M4KATPRH61QR6",
+    "config_subentry_id": null,
+    "created_at": 1792038636.571677,
+    "device_id": "690bae628099b6ac626ccb303ee0fee3",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.sun_next_setting",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "15a4da7d7371e1c2742f13184b686a6c",
+    "labels": [],
+    "modified_at": 1792038637.330116,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Próxima puesta de sol",
+    "platform": "sun",
+    "translation_key": "next_setting",
+    "unique_id": "01M4YX730S3B7M4KATPRH61QR6-next_setting"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX730S3B7M4KATPRH61QR6",
+    "config_subentry_id": null,
+    "created_at": 1792038636.571883,
+    "device_id": "690bae628099b6ac626ccb303ee0fee3",
+    "disabled_by": "integration",
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.sun_solar_elevation",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "65c8fedbdf584278433ea2634ba55947",
+    "labels": [],
+    "modified_at": 1792038636.571912,
+    "name": null,
+    "next_name_part": "device",
+    "options": {},
+    "original_name": "Elevación solar",
+    "platform": "sun",
+    "translation_key": "solar_elevation",
+    "unique_id": "01M4YX730S3B7M4KATPRH61QR6-solar_elevation"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX730S3B7M4KATPRH61QR6",
+    "config_subentry_id": null,
+    "created_at": 1792038636.571997,
+    "device_id": "690bae628099b6ac626ccb303ee0fee3",
+    "disabled_by": "integration",
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.sun_solar_azimuth",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "620ede097b8a837a3996f04c044e28ae",
+    "labels": [],
+    "modified_at": 1792038636.572023,
+    "name": null,
+    "next_name_part": "device",
+    "options": {},
+    "original_name": "Acimut solar",
+    "platform": "sun",
+    "translation_key": "solar_azimuth",
+    "unique_id": "01M4YX730S3B7M4KATPRH61QR6-solar_azimuth"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.64254,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "alarm_control_panel.security",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "2ec8ad4126235929bb2cd40d63ba72b8",
+    "labels": [],
+    "modified_at": 1792038637.330147,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Security",
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "demo_alarm_control_panel"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.642969,
+    "device_id": "1626bb78c585c8cd69d89a419714a231",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "binary_sensor.basement_floor_wet",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "5e1314f3649d3a67d350830dc2471c58",
+    "labels": [],
+    "modified_at": 1792038637.33017,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "binary_1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.643179,
+    "device_id": "fa4b137ec0b4d4dfe00642caecbef8bf",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "binary_sensor.movement_backyard",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "41177bf637fb3e04eeebc82db5d181f0",
+    "labels": [],
+    "modified_at": 1792038637.330193,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "binary_2"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.643391,
+    "device_id": "8883f375f4d025eba9c6f41e967e08b1",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "binary_sensor.outside_temperature_battery_charging",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "052075312b16065f269d5452c3937de4",
+    "labels": [],
+    "modified_at": 1792038637.330219,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Battery Charging",
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "binary_3"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.643728,
+    "device_id": "5df76b649633a128f221230cde6fc7c7",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "button.push",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "716c9192bb42169bab707b5c12c0f1e7",
+    "labels": [],
+    "modified_at": 1792038637.33024,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "push"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.646292,
+    "device_id": "bb05283c84f922a2e2b68ec868933f76",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "climate.heatpump",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "512e189878fd518f35ad6b5ea6cad23d",
+    "labels": [],
+    "modified_at": 1792038637.33028,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "ubercool",
+    "unique_id": "climate_1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.646596,
+    "device_id": "a9363fb0125ee93d84a34c9439e31656",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "climate.hvac",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "9a706d55fcbf58fd9e07b6fb85d0c1d3",
+    "labels": [],
+    "modified_at": 1792038637.330302,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "ubercool",
+    "unique_id": "climate_2"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.646839,
+    "device_id": "0e754348d176ee4fe638fc1af63331ad",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "climate.ecobee",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "a56b5feed4df5af799f60b18d35bf2bb",
+    "labels": [],
+    "modified_at": 1792038637.330321,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "ubercool",
+    "unique_id": "climate_3"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.647288,
+    "device_id": "d477c60f9d5e0d7fe14645526da47a75",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "cover.kitchen_window",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "4ea35c8dd0037edb33af8b52f8f5dec5",
+    "labels": [],
+    "modified_at": 1792038637.330339,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "cover_1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.647553,
+    "device_id": "db879d21f13ce510af42a1949d1d9403",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "cover.hall_window",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "8ef6417d48ea2ffe7a98b150414ce91a",
+    "labels": [],
+    "modified_at": 1792038637.330357,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "cover_2"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.647889,
+    "device_id": "b4f3fb9d4972e170b26cf23800e5aa85",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "cover.living_room_window",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "c7e224efc777833fff83c53fe4d64a8e",
+    "labels": [],
+    "modified_at": 1792038637.330379,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "living_room_window",
+    "unique_id": "cover_3"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.648113,
+    "device_id": "86ec49082cd96c37674b94ce97fb9855",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "cover.garage_door",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "a71428172d58fa34a9cf7d34d31b0c38",
+    "labels": [],
+    "modified_at": 1792038637.330401,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "cover_4"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.648305,
+    "device_id": "27eda214d6e0a812c173f0e652d5d088",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "cover.pergola_roof",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "429d4e3d72d26e07242a0802fbd1eca1",
+    "labels": [],
+    "modified_at": 1792038637.33042,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "cover_5"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.64868,
+    "device_id": "80759e50ab9cefd389d46bc71ff17442",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "date.date",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "a1489b708463bb215f4ba2f369edd270",
+    "labels": [],
+    "modified_at": 1792038637.330438,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "date"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.649018,
+    "device_id": "d90778f318da6f7996e953d10597b896",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "datetime.date_and_time",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "8f0ad4e43be01f0c226bd9a733f58c9b",
+    "labels": [],
+    "modified_at": 1792038637.330456,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "datetime"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.649451,
+    "device_id": "5df76b649633a128f221230cde6fc7c7",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "event.push_button_press",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "e596fac9264bb64bd7c76a6007b24807",
+    "labels": [],
+    "modified_at": 1792038637.330475,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Button press",
+    "platform": "demo",
+    "translation_key": "push",
+    "unique_id": "push"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.649775,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "fan.living_room_fan",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "b4f0ce1c7353b934f295a1434ce7214b",
+    "labels": [],
+    "modified_at": 1792038637.330494,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": "Living Room Fan",
+    "platform": "demo",
+    "translation_key": "demo",
+    "unique_id": "fan1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.649927,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "fan.ceiling_fan",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "25a59f4fd3682d6fdb989bc2d127790e",
+    "labels": [],
+    "modified_at": 1792038637.330513,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": "Ceiling Fan",
+    "platform": "demo",
+    "translation_key": "demo",
+    "unique_id": "fan2"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.650051,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "fan.percentage_full_fan",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "f612456a3ace1ad183c6edccc17facdf",
+    "labels": [],
+    "modified_at": 1792038637.33053,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": "Percentage Full Fan",
+    "platform": "demo",
+    "translation_key": "demo",
+    "unique_id": "fan3"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.650175,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "fan.percentage_limited_fan",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "09dc49cec9c6931971c044dc1cb727c1",
+    "labels": [],
+    "modified_at": 1792038637.33055,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": "Percentage Limited Fan",
+    "platform": "demo",
+    "translation_key": "demo",
+    "unique_id": "fan4"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.650289,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "fan.preset_only_limited_fan",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "29d0f1828198e91ad02fbf63c46835ed",
+    "labels": [],
+    "modified_at": 1792038637.330568,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": "Preset Only Limited Fan",
+    "platform": "demo",
+    "translation_key": "demo",
+    "unique_id": "fan5"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.651026,
+    "device_id": "903554985ba23871c3d6b6c02b140ef7",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "light.bed_light",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "bee5e35188b61346b730bec250b8c1a8",
+    "labels": [],
+    "modified_at": 1792072354.901029,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "bed_light",
+    "unique_id": "light_1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.651333,
+    "device_id": "a177fbd606e4b15cf167d6451c0cee21",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "light.ceiling_lights",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "f9725138e980f76024b25a05e49283e5",
+    "labels": [],
+    "modified_at": 1792038637.330614,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "light_2"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.651599,
+    "device_id": "f196d122e7e1b1ada00a63d24d70fd79",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "light.kitchen_lights",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "e25e56868b02f15b05afa9321854ea72",
+    "labels": [],
+    "modified_at": 1792038637.330635,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "light_3"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.65182,
+    "device_id": "c594834034070d87f2c3e6bffc55e9f8",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "light.office_rgbw_lights",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "f4b56a50bb3b2708ec63befa461bf12c",
+    "labels": [],
+    "modified_at": 1792038637.330654,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "light_4"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.652062,
+    "device_id": "1ce6f822d111dec9406613ad2eb21c3e",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "light.living_room_rgbww_lights",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "15039400c7bea2cbd83d09b473b20c1f",
+    "labels": [],
+    "modified_at": 1792038637.330695,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "light_5"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.652297,
+    "device_id": "2d1729c5a0f7936325afed0207aefafd",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "light.entrance_color_white_lights",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "59c32b02c4ff90950f2f8be55843d0d9",
+    "labels": [],
+    "modified_at": 1792038637.330722,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "light_6"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.654123,
+    "device_id": "4131354ed15399fa1294a87475e89155",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "notify.notifier",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "8f3c4b043f9c1c5f4a5e1064ed1ca338",
+    "labels": [],
+    "modified_at": 1792038637.330779,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "notify"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.654495,
+    "device_id": "6626cc3add0650f212661a31fa817053",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "number.volume",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "a310d0ce469a3fa7f7fb0fa004707966",
+    "labels": [],
+    "modified_at": 1792038637.330805,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "volume",
+    "unique_id": "volume1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.654721,
+    "device_id": "4acf0587c77511945ad6d10e03bdce90",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "number.pwm_1",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "f36547739226e4e038e0765482edffcc",
+    "labels": [],
+    "modified_at": 1792038637.330826,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "pwm",
+    "unique_id": "pwm1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.655093,
+    "device_id": "6c50e4beb11567b9f4b50ec2159606fd",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "number.large_range",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "f18c4fa5b01da49b5482a8a797f5ce6b",
+    "labels": [],
+    "modified_at": 1792038637.330844,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "range",
+    "unique_id": "large_range"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.655343,
+    "device_id": "d1f8bf3785f7c9075fcc6f2fefc47a16",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "number.small_range",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "238b7a39d5fc3929f13ad3e57e925817",
+    "labels": [],
+    "modified_at": 1792038637.330863,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "range",
+    "unique_id": "small_range"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.655541,
+    "device_id": "56e4293b5a91cb73c484a4fe1f19d9b3",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "number.temperature_setting",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "97f38c95f6ada358a8fa06a4155e8937",
+    "labels": [],
+    "modified_at": 1792038637.330882,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "temp1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.65631,
+    "device_id": "79a2d7546ee61c9627208d497e4fc69d",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "select.speed",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "404a75aea41cfef08fe72cd4ce3027c0",
+    "labels": [],
+    "modified_at": 1792038637.330912,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "speed",
+    "unique_id": "speed"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.656699,
+    "device_id": "8883f375f4d025eba9c6f41e967e08b1",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.outside_temperature",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "51213f387a2939b4acfe27c5bb2e43ba",
+    "labels": [],
+    "modified_at": 1792038637.330934,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      },
+      "sensor": {
+        "suggested_display_precision": 1
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "sensor_1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.657009,
+    "device_id": "8883f375f4d025eba9c6f41e967e08b1",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.outside_temperature_battery",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "1cedd0cd550d586886f1836dbac11d07",
+    "labels": [],
+    "modified_at": 1792038637.330955,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Battery",
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "battery_1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.657262,
+    "device_id": "d09f449775d29fed9959a0956735babd",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.outside_humidity",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "34b0754ef782c43641f69a6d84975a57",
+    "labels": [],
+    "modified_at": 1792038637.330975,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "sensor_2"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.65754,
+    "device_id": "791d5fe7c30a7383e233258928e4dd0a",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.carbon_monoxide",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "f520b1bf42136694919b056f076748c4",
+    "labels": [],
+    "modified_at": 1792038637.330995,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "sensor_3"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.657756,
+    "device_id": "db8edd00fff6dbf415c00a3aa4843883",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.carbon_dioxide",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "88177876eebe3d02c99612671ea03bc5",
+    "labels": [],
+    "modified_at": 1792038637.331014,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "sensor_4"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.657932,
+    "device_id": "db8edd00fff6dbf415c00a3aa4843883",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "sensor.carbon_dioxide_battery",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "36ea364c367f6227446c3062332261d8",
+    "labels": [],
+    "modified_at": 1792038637.331034,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Battery",
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "battery_4"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.65814,
+    "device_id": "5e586ccbedbc45fd6b50ca77e3a2cb4f",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.power_consumption",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "9ea9a88a51733b2511cffe52033f367a",
+    "labels": [],
+    "modified_at": 1792038637.331053,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      },
+      "sensor": {
+        "suggested_display_precision": 0
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "sensor_5"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.658427,
+    "device_id": "890f95c1a7df82eef3452e3a845196b7",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.total_energy_kwh",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "3a9acaceae3446874644dfda78484f67",
+    "labels": [],
+    "modified_at": 1792038637.331073,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      },
+      "sensor": {
+        "suggested_display_precision": 2
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "sensor_6"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.658751,
+    "device_id": "cdddbce2913ca6e57d30913f13589617",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.total_energy_mwh",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "c0accdf8e35e87db861a23d389f848f3",
+    "labels": [],
+    "modified_at": 1792038637.331093,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      },
+      "sensor": {
+        "suggested_display_precision": 2
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "sensor_7"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.659051,
+    "device_id": "7bdac21fe19cb5ce70bb8a2da6f0774a",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.total_gas_m3",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "974512e21c2e65bd79fb9ba0763608f7",
+    "labels": [],
+    "modified_at": 1792038637.331113,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      },
+      "sensor": {
+        "suggested_display_precision": 2
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "sensor_8"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.659385,
+    "device_id": "0719d5a94a5e2576cd4013f7f225f872",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.total_gas_ft3",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "d4df721aa778d8cf7b3c36aa7fa408de",
+    "labels": [],
+    "modified_at": 1792038637.331136,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      },
+      "sensor": {
+        "suggested_display_precision": 2
+      },
+      "sensor.private": {
+        "suggested_unit_of_measurement": "m³"
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "sensor_9"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.659731,
+    "device_id": "dbbdec05e1cf2aafa9fad07626a5a626",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.thermostat",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "9d2f6c1dc9d13a6b847630ac307e4099",
+    "labels": [],
+    "modified_at": 1792038637.331156,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "thermostat_mode",
+    "unique_id": "sensor_10"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.660583,
+    "device_id": "52418099d63dcd6f7c0bbea5c0a7a211",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "switch.decorative_lights",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "ba1f3991f459e5acec6366682d5b6605",
+    "labels": [],
+    "modified_at": 1792038637.331187,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "switch1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.66079,
+    "device_id": "eaa6db2f421491c95be82aa0ed5b9b36",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "switch.ac",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "36a9b5f018733170af0af814677c10cf",
+    "labels": [],
+    "modified_at": 1792038637.331207,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "air_conditioner",
+    "unique_id": "switch2"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.661125,
+    "device_id": "546154f152945869d6968b273bfaa74a",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "text.text",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "d643473a630d6d76e38f0b7f828a6280",
+    "labels": [],
+    "modified_at": 1792038637.331226,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "text"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.661353,
+    "device_id": "082efbd0f2fc056eb3d63637be23a73b",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "text.password",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "b259dc66e82692ca75e870689f868ea9",
+    "labels": [],
+    "modified_at": 1792038637.331244,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "password"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.661588,
+    "device_id": "5de93b81dbef40df1e88fa48118790ba",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "text.text_with_1_to_5_characters",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "45e7ddabf3401b462fabfdfed141ce08",
+    "labels": [],
+    "modified_at": 1792038637.331263,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "text_1_to_5_char"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.661777,
+    "device_id": "962eaac44fe3e2c84a0c6fed484a269d",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "text.text_with_only_lower_case_characters",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "dcd3c13f3aaf7b956c91516e7e33b67a",
+    "labels": [],
+    "modified_at": 1792038637.331281,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "text_lowercase"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.662153,
+    "device_id": "d591f57e51299813fcfe0795066f9833",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "time.time",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "278b4b9759100dada8b1827e4b35a6c7",
+    "labels": [],
+    "modified_at": 1792038637.331348,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "time"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.662556,
+    "device_id": "547c53f1fe2ab814510946052bef6a63",
+    "disabled_by": null,
+    "entity_category": "diagnostic",
+    "entity_id": "update.demo_update_no_install",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "82d6248cf0d7463cf5b3597f5b7b4f3b",
+    "labels": [],
+    "modified_at": 1792038637.331374,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "update_no_install"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.662822,
+    "device_id": "06b4be4bb37f95f4861f695ac4eefda5",
+    "disabled_by": null,
+    "entity_category": "config",
+    "entity_id": "update.demo_no_update",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "bbc51bc0cb1becc8a05e8a2a2a67da06",
+    "labels": [],
+    "modified_at": 1792038637.331394,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "update_2_date"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.663025,
+    "device_id": "08e3b5374d2f37ecf2dac3415bc4ad54",
+    "disabled_by": null,
+    "entity_category": "config",
+    "entity_id": "update.demo_add_on",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "fbb43a7ca297cc0f5f0afaf6936dd0d8",
+    "labels": [],
+    "modified_at": 1792038637.331414,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "update_addon"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.663271,
+    "device_id": "a343ef3925a7a31a27460b875c4455fd",
+    "disabled_by": null,
+    "entity_category": "config",
+    "entity_id": "update.demo_living_room_bulb_update",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "dbca808036c1190fc141ff426b97f0b3",
+    "labels": [],
+    "modified_at": 1792038637.331432,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "update_light_bulb"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.663721,
+    "device_id": "03725d0620a6df9c80b66c52baf140eb",
+    "disabled_by": null,
+    "entity_category": "config",
+    "entity_id": "update.demo_update_with_progress",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "94eb97604ba8b19e959445300da48fac",
+    "labels": [],
+    "modified_at": 1792038637.331452,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "update_support_progress"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.663933,
+    "device_id": "9e58f827384f53cf84bb67294b4b4cb9",
+    "disabled_by": null,
+    "entity_category": "config",
+    "entity_id": "update.demo_update_with_decimal_progress",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "c194603a799f1fd67d4150bcae153426",
+    "labels": [],
+    "modified_at": 1792038637.33147,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "update_support_decimal_progress"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.66442,
+    "device_id": "8ba920ff74ab1c7171003a98b84e554e",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "vacuum.demo_vacuum_0_ground_floor",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "66b743f380f2c7614d63aa3aded67ec4",
+    "labels": [],
+    "modified_at": 1792038637.331488,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "model_s",
+    "unique_id": "vacuum_1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.664625,
+    "device_id": "96d95c8f3f29f2fa77114a6dbf7de150",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "vacuum.demo_vacuum_1_first_floor",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "18aaea2cf2eb1087fc58b3aad5576a23",
+    "labels": [],
+    "modified_at": 1792038637.33151,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "model_s",
+    "unique_id": "vacuum_2"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.664812,
+    "device_id": "a537bcf421d1dcd20019504bec8e4b72",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "vacuum.demo_vacuum_2_second_floor",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "a27cd9ce044272bc4cf0f1763da9f64f",
+    "labels": [],
+    "modified_at": 1792038637.331532,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "model_s",
+    "unique_id": "vacuum_3"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.665004,
+    "device_id": "a13c0e4e6860a2559a8361cb2c2ad5e9",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "vacuum.demo_vacuum_3_third_floor",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "a60f61783ee4956a0b1445eb26b99ff3",
+    "labels": [],
+    "modified_at": 1792038637.33155,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "model_s",
+    "unique_id": "vacuum_4"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.665195,
+    "device_id": "a44d223f293073815221b016095b0557",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "vacuum.demo_vacuum_4_fourth_floor",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "f678f9e63cf61e2206c960a77964949a",
+    "labels": [],
+    "modified_at": 1792038637.331569,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": "model_s",
+    "unique_id": "vacuum_5"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.665546,
+    "device_id": "c3f08558b73c93d8f26d74f4f24a29f2",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "valve.front_garden",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "a03896173003a0653d608ebe68c68ff6",
+    "labels": [],
+    "modified_at": 1792038637.331587,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "valve_1"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.66575,
+    "device_id": "43af45dfb938fd7e98c52f1a22756be2",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "valve.orchard",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "89e086f935662eabc0eabb8ca5843503",
+    "labels": [],
+    "modified_at": 1792038637.331605,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "valve_2"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.666021,
+    "device_id": "2284155992077a750aa66b2ec03b5a4d",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "valve.back_garden",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "cce35db4970a23d3493816a1bde8ef4a",
+    "labels": [],
+    "modified_at": 1792038637.331624,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "valve_3"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.666226,
+    "device_id": "9061af1b03ec6a5ae25c2fb773d9d969",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "valve.trees",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "7b9d5fb4e6a06bbbf57436412ea011a1",
+    "labels": [],
+    "modified_at": 1792038637.331641,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": null,
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "valve_4"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.666533,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "water_heater.demo_water_heater",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "88f0f4ce2a9d00f84e588b074b1041ec",
+    "labels": [],
+    "modified_at": 1792038637.331661,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": "Demo Water Heater",
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "demo_water_heater"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.666703,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "water_heater.demo_water_heater_celsius",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "1fbf7dea791918f5b7d1e7040c36b7bb",
+    "labels": [],
+    "modified_at": 1792038637.331679,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": true
+      }
+    },
+    "original_name": "Demo Water Heater Celsius",
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "demo_water_heater_celsius"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.667022,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "weather.demo_weather_south",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "b1aeecf9cee5c8cd86bed732110a965a",
+    "labels": [],
+    "modified_at": 1792038637.331697,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Demo Weather South",
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "demo-weather-south"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX72YAVK5Z9WD8E461NZYP",
+    "config_subentry_id": null,
+    "created_at": 1792038636.667216,
+    "device_id": null,
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "weather.demo_weather_north",
+    "has_entity_name": false,
+    "hidden_by": null,
+    "icon": null,
+    "id": "8311c470dfa86d9fa7a5f26ac35ea088",
+    "labels": [],
+    "modified_at": 1792038637.331715,
+    "name": null,
+    "next_name_part": null,
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Demo Weather North",
+    "platform": "demo",
+    "translation_key": null,
+    "unique_id": "demo-weather-north"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX73RR7JR8ET3F161QEA98",
+    "config_subentry_id": null,
+    "created_at": 1792038637.342438,
+    "device_id": "56093d91f4f3e21ba3d6faece1f6896c",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "event.backup_copia_de_seguridad_automatica",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "cb2e33860040677401c75593cad68c48",
+    "labels": [],
+    "modified_at": 1792038637.342745,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Copia de seguridad automática",
+    "platform": "backup",
+    "translation_key": "automatic_backup_event",
+    "unique_id": "automatic_backup_event"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX73RR7JR8ET3F161QEA98",
+    "config_subentry_id": null,
+    "created_at": 1792038637.343042,
+    "device_id": "56093d91f4f3e21ba3d6faece1f6896c",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.backup_estado_del_administrador_de_copias_de_seguridad",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "d22e0ec17e40be74111e4ff448ede4c8",
+    "labels": [],
+    "modified_at": 1792038637.343203,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Estado del administrador de copias de seguridad",
+    "platform": "backup",
+    "translation_key": "backup_manager_state",
+    "unique_id": "backup_manager_state"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX73RR7JR8ET3F161QEA98",
+    "config_subentry_id": null,
+    "created_at": 1792038637.343343,
+    "device_id": "56093d91f4f3e21ba3d6faece1f6896c",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.backup_proxima_copia_de_seguridad_automatica_programada",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "e922dfc70c827f3573c0a03d08f8ad5b",
+    "labels": [],
+    "modified_at": 1792038637.343553,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Próxima copia de seguridad automática programada",
+    "platform": "backup",
+    "translation_key": "next_scheduled_automatic_backup",
+    "unique_id": "next_scheduled_automatic_backup"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX73RR7JR8ET3F161QEA98",
+    "config_subentry_id": null,
+    "created_at": 1792038637.34372,
+    "device_id": "56093d91f4f3e21ba3d6faece1f6896c",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.backup_ultima_copia_de_seguridad_automatica_realizada_correctamente",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "8469dc3caec3b0365e9e0e28770fc515",
+    "labels": [],
+    "modified_at": 1792038637.34398,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Última copia de seguridad automática realizada correctamente",
+    "platform": "backup",
+    "translation_key": "last_successful_automatic_backup",
+    "unique_id": "last_successful_automatic_backup"
+  },
+  {
+    "area_id": null,
+    "categories": {},
+    "config_entry_id": "01M4YX73RR7JR8ET3F161QEA98",
+    "config_subentry_id": null,
+    "created_at": 1792038637.344121,
+    "device_id": "56093d91f4f3e21ba3d6faece1f6896c",
+    "disabled_by": null,
+    "entity_category": null,
+    "entity_id": "sensor.backup_ultimo_intento_de_copia_de_seguridad_automatica",
+    "has_entity_name": true,
+    "hidden_by": null,
+    "icon": null,
+    "id": "60bafb053d8a3f798bfeb022b82923be",
+    "labels": [],
+    "modified_at": 1792038637.344352,
+    "name": null,
+    "next_name_part": "device",
+    "options": {
+      "conversation": {
+        "should_expose": false
+      }
+    },
+    "original_name": "Último intento de copia de seguridad automática",
+    "platform": "backup",
+    "translation_key": "last_attempted_automatic_backup",
+    "unique_id": "last_attempted_automatic_backup"
+  }
+]

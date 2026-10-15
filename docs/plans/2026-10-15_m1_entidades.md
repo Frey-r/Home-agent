@@ -122,11 +122,11 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 ### CLI y Herramientas
 - [ ] `TestEntitiesDump`: subcomando `edge-core entities dump` con filtros `--exposed-only` y `--category`.
 - [ ] `TestRun_LiveUpdatesDirectory`: comando `run` mantiene vivo el directorio y registra cambios en log.
-- [ ] `TestSeed_SendsExpectedCommands`: verificación de comandos de siembra en `ha-bootstrap seed`.
-- [ ] `TestSeed_Idempotent`: ejecución idempotente de sembrado.
-- [ ] `TestCapture_RefusesNonDemo`: rechazo de captura en instancias no autorizadas.
-- [ ] `TestCapture_RedactsSecrets`: sanitización de tokens y datos privados.
-- [ ] `TestCapture_DropsUnsupportedDomains`: omisión de dominios no soportados.
+- [x] `TestSeed_SendsExpectedCommands`: verificación de comandos de siembra en `ha-bootstrap seed`.
+- [x] `TestSeed_Idempotent`: ejecución idempotente de sembrado.
+- [x] `TestCapture_RefusesNonDemo`: rechazo de captura en instancias no autorizadas.
+- [x] `TestCapture_RedactsSecrets`: sanitización de tokens y datos privados.
+- [x] `TestCapture_DropsUnsupportedDomains`: omisión de dominios no soportados.
 
 ### Integración con Home Assistant Real
 - [ ] `TestRealHA_EntitiesValidateAndCover`: 100% de entidades reales validan contra el esquema.
@@ -170,11 +170,11 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] Verificar manejo de errores y pipeline de registros todo-o-nada.
 
 ### Fase 5: Sembrado (`ha-bootstrap seed`) y Captura (`ha-capture`)
-- [ ] Actualizar `dev/ha-config/configuration.yaml` con escenas (`modo_noche`, `peliculas`) y script (`saludo`).
-- [ ] Escribir tests en rojo para `ha-bootstrap seed` y `ha-capture`.
-- [ ] Implementar comando `ha-bootstrap seed` idempotente.
-- [ ] Implementar herramienta `ha-capture` con sanitización de secretos.
-- [ ] Capturar y versionar fixtures en `edge/internal/entities/testdata/demo-2026.10.1/`.
+- [x] Actualizar `dev/ha-config/configuration.yaml` con escenas (`modo_noche`, `peliculas`) y script (`saludo`).
+- [x] Escribir tests en rojo para `ha-bootstrap seed` y `ha-capture`.
+- [x] Implementar comando `ha-bootstrap seed` idempotente.
+- [x] Implementar herramienta `ha-capture` con sanitización de secretos.
+- [x] Capturar y versionar fixtures en `edge/internal/entities/testdata/demo-2026.10.1/`.
 
 ### Fase 6: Supervisor de Conexión (`ha/supervisor.go`)
 - [ ] Escribir tests en rojo de reconexión, backoff, jitter y heartbeat.
@@ -218,3 +218,10 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
   - Fase 0 completada: módulo renombrado a `github.com/Frey-r/Home-agent/edge`, enlaces relativos corregidos, CI preparado con `actions/checkout@v7` y `actions/setup-go@v7`, pregunta #7 cerrada en el roadmap. Tests existentes validados en verde con `-race`.
   - Fase 1 completada: ADR-0007 redactado y registrado en `docs/adr/README.md`. Plan M1 formateado y registrado en `docs/plans/README.md`.
   - Estado: listo para iniciar Fase 2 (creación del módulo `contracts/` y primeros tests de esquema).
+- **[2026-10-15 10:55]**:
+  - Fase 2 completada: módulo `contracts/` creado, `entity.v1.json` con 13 categorías y validación de parámetros, structs en Go e integración en `go.work`. Tests en verde con `-race`.
+  - Fase 3 completada: `hatest` v2 extendido con estado mutable y ráfagas; `events.go` y suscripciones WebSocket con coalescing y `slow_consumer`. Cero fugas de goroutines con `goleak`.
+  - Fase 4 completada: `CallService`, `Registries`, `EntityDetails`, `Exposed` y `GetConfig` en `edge/internal/ha/`.
+  - Fase 5 completada: escenas y scripts en `configuration.yaml`, comando `ha-bootstrap seed` idempotente, herramienta `ha-capture` con sanitización de secretos y fixtures capturadas en `edge/internal/entities/testdata/demo-2026.10.1/`.
+  - Estado: listo para iniciar Fase 6 (`Supervisor` de conexión).
+

@@ -1,0 +1,41 @@
+[
+  {
+    "aliases": [],
+    "area_id": "salon",
+    "created_at": 1792038634.816183,
+    "floor_id": null,
+    "humidity_entity_id": null,
+    "icon": "mdi:sofa",
+    "labels": [],
+    "modified_at": 1792038634.816185,
+    "name": "Salón",
+    "picture": null,
+    "temperature_entity_id": null
+  },
+  {
+    "aliases": [],
+    "area_id": "cocina",
+    "created_at": 1792038634.81628,
+    "floor_id": null,
+    "humidity_entity_id": null,
+    "icon": "mdi:stove",
+    "labels": [],
+    "modified_at": 1792038634.816281,
+    "name": "Cocina",
+    "picture": null,
+    "temperature_entity_id": null
+  },
+  {
+    "aliases": [],
+    "area_id": "dormitorio",
+    "created_at": 1792038634.816308,
+    "floor_id": null,
+    "humidity_entity_id": null,
+    "icon": "mdi:bed",
+    "labels": [],
+    "modified_at": 1792038634.816309,
+    "name": "Dormitorio",
+    "picture": null,
+    "temperature_entity_id": null
+  }
+]

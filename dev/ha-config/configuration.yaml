@@ -14,3 +14,26 @@ frontend:
 
 # Entidades de ejemplo de todos los dominios relevantes para el agente.
 demo:
+
+scene:
+  - id: modo_noche
+    name: "Modo Noche"
+    entities:
+      light.bed_light: "off"
+      light.ceiling_lights: "off"
+      lock.front_door: "locked"
+  - id: peliculas
+    name: "Películas"
+    entities:
+      light.bed_light: "off"
+      light.ceiling_lights:
+        state: "on"
+        brightness: 50
+
+script:
+  saludo:
+    alias: "Saludo"
+    sequence:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: light.bed_light

@@ -190,10 +190,11 @@ type UnitSystem struct {
 
 // HAConfig contiene la configuración del core de HA.
 type HAConfig struct {
-	State      string     `json:"state"`
-	Version    string     `json:"version"`
-	TimeZone   string     `json:"time_zone"`
-	UnitSystem UnitSystem `json:"unit_system"`
+	State        string     `json:"state"`
+	Version      string     `json:"version"`
+	LocationName string     `json:"location_name"`
+	TimeZone     string     `json:"time_zone"`
+	UnitSystem   UnitSystem `json:"unit_system"`
 }
 
 // GetConfig consulta y parsea la configuración del core de Home Assistant.

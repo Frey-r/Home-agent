@@ -1,0 +1,13 @@
+{
+  "state": "RUNNING",
+  "version": "2026.10.1",
+  "location_name": "Casa Dev",
+  "time_zone": "America/Santiago",
+  "unit_system": {
+    "temperature": "°C",
+    "length": "km",
+    "mass": "g",
+    "pressure": "Pa",
+    "volume": "L"
+  }
+}
