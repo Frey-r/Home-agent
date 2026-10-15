@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"domotica/edge/internal/ha"
+	"github.com/Frey-r/Home-agent/edge/internal/ha"
 )
 
 func TestRealHA_Demo(t *testing.T) {

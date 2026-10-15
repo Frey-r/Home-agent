@@ -19,7 +19,7 @@ Este directorio almacena el historial y estado de todos los planes de trabajo, t
 ---
 
 ## Cómo Crear un Nuevo Plan
-1. Copiar la plantilla [docs/plans/template.md](file:///c:/Users/eduar/Workspace/personal/Dom%C3%B3tica/docs/plans/template.md).
+1. Copiar la plantilla [docs/plans/template.md](template.md).
 2. Nombrar el archivo con el formato `YYYY-MM-DD_<nombre_tarea>.md` (ejemplo: `2026-10-15_inicializar_core_go.md`).
 3. Definir primero los tests a construir (TDD) y las subtareas con checkboxes.
 4. Agregar el plan a la tabla de **Planes Activos** en este archivo `README.md`.

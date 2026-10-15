@@ -55,5 +55,5 @@ Se adopta como política obligatoria e inquebrantable para el repositorio:
 ---
 
 ## 5. Referencias y Documentación Relacionada
-- [AGENTS.md](file:///c:/Users/eduar/Workspace/personal/Dom%C3%B3tica/AGENTS.md)
-- [arquitectura_teórica.md](file:///c:/Users/eduar/Workspace/personal/Dom%C3%B3tica/arquitectura_te%C3%B3rica.md)
+- [AGENTS.md](../../AGENTS.md)
+- [arquitectura_teórica.md](../../arquitectura_teórica.md)

@@ -19,7 +19,7 @@ import (
 	"strings"
 	"time"
 
-	"domotica/edge/internal/ha"
+	"github.com/Frey-r/Home-agent/edge/internal/ha"
 )
 
 func main() {

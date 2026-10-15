@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"domotica/edge/internal/ha/hatest"
+	"github.com/Frey-r/Home-agent/edge/internal/ha/hatest"
 )
 
 // fakeOnboarding simula los endpoints HTTP de onboarding/auth de HA y monta el

@@ -74,7 +74,7 @@ Cada milestone define en su plan los tests que se escriben en rojo antes de impl
 - [ ] **M2a**: `llmkit`, el proveedor de LLM como commodity con formatos OpenAI y Anthropic. Requiere ADR-0008.
 - [ ] **M2b**: Tools, agente, guardrails L0–L3 y L5, CLI `edge-core chat` y evals. Requiere ADR-0009 (modelo de seguridad).
 - [ ] **M3**: Identidad, Telegram por long polling, confirmaciones con botones y auditoría.
-- [ ] **M4**: Memoria, scheduler, recordatorios, listas en `todo` de HA y brief matinal.
+- [ ] **M4**: Memoria como grafo de conocimiento sobre SQLite (requiere ADR), scheduler, recordatorios, listas en `todo` de HA y brief matinal.
 - [ ] **M5**: `convapi` e integración de HA (`ConversationEntity`) para voz.
 - [ ] **M6**: App de HA multi-arch e instalación en HA OS. Requiere ADR-0010 (imágenes en ghcr.io). **Cierra la Fase 0.** Desde aquí se inicia la verificación OAuth de Google y la *publisher verification* de Microsoft.
 
@@ -114,4 +114,4 @@ Cada milestone define en su plan los tests que se escriben en rojo antes de impl
 | 4 | Distribución de la integración: ¿la copia la app a `/config` o se instala vía HACS? | M5/M6. |
 | 5 | Nombre comercial sin la marca HA. | Consulta a la Open Home Foundation. |
 | 6 | Acceso a la API de tiempo real de DTPM y licencia del GTFS. | Antes de M10. |
-| 7 | Si el ID de módulo Go `domotica/...` debe pasar a la ruta del repositorio remoto. | Cuando exista el remoto. |
+| 7 | Si el ID de módulo Go `domotica/...` debe pasar a la ruta del repositorio remoto. | Resuelta en M1: adoptado `github.com/Frey-r/Home-agent/edge`. |

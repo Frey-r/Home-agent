@@ -1,4 +1,4 @@
-module domotica/edge
+module github.com/Frey-r/Home-agent/edge
 
 go 1.27.0
 

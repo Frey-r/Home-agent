@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"domotica/edge/internal/config"
-	"domotica/edge/internal/ha"
-	"domotica/edge/internal/ha/hatest"
+	"github.com/Frey-r/Home-agent/edge/internal/config"
+	"github.com/Frey-r/Home-agent/edge/internal/ha"
+	"github.com/Frey-r/Home-agent/edge/internal/ha/hatest"
 )
 
 func lookupFrom(env map[string]string) config.LookupFunc {

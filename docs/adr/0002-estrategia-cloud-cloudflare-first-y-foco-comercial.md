@@ -87,6 +87,6 @@ Se adopta de forma mandataria:
 ---
 
 ## 6. Referencias y Documentación Relacionada
-- [AGENTS.md](file:///c:/Users/eduar/Workspace/personal/Dom%C3%B3tica/AGENTS.md)
-- [ADR-0001: Adopción Obligatoria de TDD, ADRs y Planes Persistentes](file:///c:/Users/eduar/Workspace/personal/Dom%C3%B3tica/docs/adr/0001-adopcion-tdd-adrs-planes.md)
-- [arquitectura_teórica.md](file:///c:/Users/eduar/Workspace/personal/Dom%C3%B3tica/arquitectura_te%C3%B3rica.md)
+- [AGENTS.md](../../AGENTS.md)
+- [ADR-0001: Adopción Obligatoria de TDD, ADRs y Planes Persistentes](0001-adopcion-tdd-adrs-planes.md)
+- [arquitectura_teórica.md](../../arquitectura_teórica.md)

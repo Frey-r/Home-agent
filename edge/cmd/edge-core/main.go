@@ -15,9 +15,9 @@ import (
 	"syscall"
 	"time"
 
-	"domotica/edge/internal/config"
-	"domotica/edge/internal/ha"
-	"domotica/edge/internal/store"
+	"github.com/Frey-r/Home-agent/edge/internal/config"
+	"github.com/Frey-r/Home-agent/edge/internal/ha"
+	"github.com/Frey-r/Home-agent/edge/internal/store"
 )
 
 const (

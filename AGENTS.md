@@ -125,11 +125,11 @@ La infraestructura satélite en la nube estará cimentada sobre **Cloudflare**:
 Las sesiones de chat y contextos de IA son volátiles; el repositorio es la única fuente de verdad persistente. Los planes de trabajo jamás deben quedar únicamente en el diálogo.
 
 #### Ciclo de Vida de los Planes (`docs/plans/`):
-1. **Creación**: Antes de iniciar una tarea compleja, refactor o feature, se debe crear un archivo en `docs/plans/YYYY-MM-DD_<nombre_tarea>.md` utilizando la plantilla en [docs/plans/template.md](file:///c:/Users/eduar/Workspace/personal/Dom%C3%B3tica/docs/plans/template.md).
+1. **Creación**: Antes de iniciar una tarea compleja, refactor o feature, se debe crear un archivo en `docs/plans/YYYY-MM-DD_<nombre_tarea>.md` utilizando la plantilla en [docs/plans/template.md](docs/plans/template.md).
 2. **Definición de Pruebas Primero**: El plan debe detallar explícitamente qué tests se van a crear antes de comenzar a codificar.
 3. **Seguimiento con Checkboxes**: Cada subtarea debe representarse como `- [ ]` y marcarse `- [x]` inmediatamente al ser completada y testeada.
 4. **Memoria de Estado**: Si una tarea queda incompleta o pausada, el archivo debe reflejar el estado exacto, obstáculos encontrados y los siguientes pasos para que cualquier agente posterior retome el hilo sin pérdida de contexto.
-5. **Índice Central**: Registrar el plan en el historial de [docs/plans/README.md](file:///c:/Users/eduar/Workspace/personal/Dom%C3%B3tica/docs/plans/README.md).
+5. **Índice Central**: Registrar el plan en el historial de [docs/plans/README.md](docs/plans/README.md).
 
 ---
 

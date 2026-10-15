@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"domotica/edge/internal/ha/hatest"
+	"github.com/Frey-r/Home-agent/edge/internal/ha/hatest"
 )
 
 const testTimeout = 5 * time.Second
