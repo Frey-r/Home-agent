@@ -1,0 +1,4 @@
+# LF en el repo: la app de HA, los Dockerfiles y los scripts se construyen/ejecutan en Linux.
+* text=auto eol=lf
+*.png binary
+*.zip binary

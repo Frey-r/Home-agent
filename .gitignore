@@ -1,0 +1,35 @@
+# Datos locales del edge (SQLite, llaves)
+.data/
+*.db
+*.db-wal
+*.db-shm
+
+# Secretos de desarrollo (token de HA, API keys)
+.env
+dev/.env
+
+# Estado de HA de desarrollo (se regenera con docker compose + ha-bootstrap)
+dev/ha-config/*
+!dev/ha-config/configuration.yaml
+
+# Go
+*.exe
+*.test
+*.out
+coverage.*
+
+# Node / Cloudflare
+node_modules/
+.wrangler/
+dist/
+
+# Python
+__pycache__/
+.venv/
+.pytest_cache/
+
+# Editores / SO
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
