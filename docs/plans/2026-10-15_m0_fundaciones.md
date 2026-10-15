@@ -134,11 +134,11 @@ Todos los tests son table-driven cuando aplica y se validan con `go test -v -rac
 ## 4. Fases de Ejecución y Tareas
 
 ### Fase 1: Pruebas Iniciales (Rojo)
-- [ ] Crear `go.work` y `edge/go.mod`, con las dependencias `modernc.org/sqlite` y `coder/websocket`.
-- [ ] Escribir los tests de `config`, con stubs mínimos de firmas para que compilen, y comprobar que fallan.
-- [ ] Escribir los tests de `store` y comprobar que fallan.
-- [ ] Escribir el fake `hatest` y los tests de `ha`, y comprobar que fallan.
-- [ ] Escribir los tests de `cmd/edge-core` y `cmd/ha-bootstrap`, y comprobar que fallan.
+- [x] Crear `go.work` y `edge/go.mod`, con las dependencias `modernc.org/sqlite` v1.60.1 y `coder/websocket` v1.8.15.
+- [x] Escribir los tests de `config`, con stubs mínimos de firmas para que compilen, y comprobar que fallan.
+- [x] Escribir los tests de `store` y comprobar que fallan.
+- [x] Escribir el fake `hatest` y los tests de `ha`, y comprobar que fallan.
+- [x] Escribir los tests de `cmd/edge-core` y `cmd/ha-bootstrap`, y comprobar que fallan.
 
 ### Fase 2: Implementación Mínima (Verde)
 - [ ] Implementar `config.Load`.
