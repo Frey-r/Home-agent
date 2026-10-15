@@ -192,10 +192,11 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] Implementar `TestBuildAll_DemoGolden`, cobertura del 100% y validación contra `entity.v1.json`.
 
 ### Fase 9: Directorio y Sincronizador (`Directory` y `Syncer`)
-- [ ] Escribir tests en rojo de `Directory` (concurrencia, watch coalescente, deduplicación de versión).
-- [ ] Escribir tests en rojo de `Syncer` (snapshot, colisión de eventos, altas, bajas, debounce de registro, resync).
-- [ ] Implementar `Directory` inmutable y `Syncer` en `edge/internal/entities/`.
-- [ ] Validar rendimiento y resiliencia contra `hatest`.
+### Fase 9: Directorio y Syncer Reactivo
+- [x] Escribir tests en rojo de `Directory` (concurrencia, watch coalescente, deduplicación de versión).
+- [x] Escribir tests en rojo de `Syncer` (snapshot, colisión de eventos, altas, bajas, debounce de registro, resync).
+- [x] Implementar `Directory` inmutable y `Syncer` en `edge/internal/entities/`.
+- [x] Validar rendimiento y resiliencia contra `hatest`.
 
 ### Fase 10: Integración en CLI (`edge-core`)
 - [ ] Refactorizar `run` para aceptar dependencias inyectables (`stdout`, `stderr`, lookup).
@@ -238,6 +239,11 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
   - Invariante de forma de parámetros por par (categoría, acción) verificado.
   - Determinismo estricto verificado ante barajado aleatorio de entradas. Tests con `-race` en verde.
   - Estado: listo para iniciar Fase 9 (`Directory` y `Syncer`).
+- **[2026-10-15 11:23]**:
+  - Fase 9 completada: `Directory` en memoria con snapshots inmutables (`atomic.Value`), búsquedas concurrentes lock-free, indexación por categoría y exposición, no-bump ante entidades idénticas y canal de notificación coalescente para observers.
+  - `Syncer` reactivo: suscripción previa a eventos antes de snapshot para evitar pérdidas intermedias; debouncing de ráfagas de cambios de registros (áreas, dispositivos, entidades) a 100ms; procesamiento de `state_changed` y actualización en < 1s; descarte de eventos más viejos que el snapshot inicial; manejo seguro de altas y bajas; sin estados parciales si la conexión se cae durante el snapshot.
+  - Suite completa de tests pasando con `-race` en todos los módulos de `go.work`.
+  - Estado: listo para iniciar Fase 10 (Integración en CLI `edge-core`).
 
 
 
