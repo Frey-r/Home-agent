@@ -19,7 +19,8 @@ import (
 // WS falso en /api/websocket.
 type fakeOnboarding struct {
 	userDone      bool
-	tokenStatus   int // 0 = 200
+	tokenStatus   int   // 0 = 200
+	configSeq     []any // respuestas sucesivas de get_config (nil = RUNNING)
 	gotUser       map[string]any
 	gotTokenForm  map[string]string
 	bearerOnSteps []string
@@ -65,10 +66,14 @@ func (f *fakeOnboarding) server(t *testing.T) *httptest.Server {
 			writeJSON(w, map[string]any{})
 		})
 	}
-	mux.Handle("/api/websocket", hatest.NewHandler(t, hatest.Options{
+	opts := hatest.Options{
 		Token:   "ACCESS-1",
 		Results: map[string]any{"auth/long_lived_access_token": "LLAT-123"},
-	}))
+	}
+	if f.configSeq != nil {
+		opts.ResultSeq = map[string][]any{"get_config": f.configSeq}
+	}
+	mux.Handle("/api/websocket", hatest.NewHandler(t, opts))
 	srv := httptest.NewServer(mux)
 	t.Cleanup(srv.Close)
 	return srv
@@ -80,13 +85,21 @@ func writeJSON(w http.ResponseWriter, v any) {
 }
 
 func TestBootstrap(t *testing.T) {
+	starting := hatest.Config("STARTING", "2026.10.1")
+	running := hatest.Config("RUNNING", "2026.10.1")
+
 	tests := []struct {
 		name      string
 		fake      fakeOnboarding
+		timeout   time.Duration
 		wantToken string
 		wantErr   string
 	}{
 		{name: "flujo completo", wantToken: "LLAT-123"},
+		// Regresión CI M0: la API de onboarding responde antes de que HA
+		// termine de cargar integraciones.
+		{name: "espera a que HA termine de arrancar", fake: fakeOnboarding{configSeq: []any{starting, starting, running}}, wantToken: "LLAT-123"},
+		{name: "HA nunca termina de arrancar", fake: fakeOnboarding{configSeq: []any{starting}}, timeout: 300 * time.Millisecond, wantErr: "arrancar"},
 		{name: "ya onboardeado", fake: fakeOnboarding{userDone: true}, wantErr: "ya fue configurado"},
 		{name: "token endpoint falla", fake: fakeOnboarding{tokenStatus: http.StatusBadRequest}, wantErr: "auth/token"},
 	}
@@ -94,10 +107,14 @@ func TestBootstrap(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			fake := tt.fake
 			srv := fake.server(t)
-			ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+			timeout := tt.timeout
+			if timeout == 0 {
+				timeout = 5 * time.Second
+			}
+			ctx, cancel := context.WithTimeout(context.Background(), timeout)
 			defer cancel()
 
-			got, err := bootstrap(ctx, srv.URL, "dev", "dev-pass", srv.Client())
+			got, err := bootstrap(ctx, srv.URL, "dev", "dev-pass", srv.Client(), 10*time.Millisecond)
 			if tt.wantErr != "" {
 				if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
 					t.Fatalf("bootstrap() error = %v, debe contener %q", err, tt.wantErr)

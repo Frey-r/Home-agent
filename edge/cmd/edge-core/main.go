@@ -13,13 +13,18 @@ import (
 	"os/signal"
 	"path/filepath"
 	"syscall"
+	"time"
 
 	"domotica/edge/internal/config"
 	"domotica/edge/internal/ha"
 	"domotica/edge/internal/store"
 )
 
-const usage = "uso: edge-core run [--once]"
+const (
+	usage = "uso: edge-core run [--once]"
+	// haStartPoll es el intervalo de consulta mientras HA arranca.
+	haStartPoll = 500 * time.Millisecond
+)
 
 func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
@@ -73,6 +78,13 @@ func runCmd(ctx context.Context, args []string, lookup config.LookupFunc, logOut
 		return err
 	}
 	defer conn.Close()
+
+	// Tras un reinicio de HA OS la app puede arrancar antes que el core:
+	// sincronizar en ese momento entregaría una casa a medias.
+	log.Info("esperando a que Home Assistant termine de arrancar")
+	if err := conn.WaitStarted(ctx, haStartPoll); err != nil {
+		return err
+	}
 
 	states, err := conn.GetStates(ctx)
 	if err != nil {

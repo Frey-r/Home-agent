@@ -178,6 +178,31 @@ func (c *Conn) GetStates(ctx context.Context) ([]State, error) {
 	return states, nil
 }
 
+// WaitStarted espera a que el core de HA termine de arrancar (estado RUNNING
+// en get_config), consultando cada interval.
+func (c *Conn) WaitStarted(ctx context.Context, interval time.Duration) error {
+	for {
+		raw, err := c.Command(ctx, map[string]any{"type": "get_config"})
+		if err != nil {
+			return err
+		}
+		var cfg struct {
+			State string `json:"state"`
+		}
+		if err := json.Unmarshal(raw, &cfg); err != nil {
+			return fmt.Errorf("ha: decodificar get_config: %w", err)
+		}
+		if cfg.State == "RUNNING" {
+			return nil
+		}
+		select {
+		case <-ctx.Done():
+			return fmt.Errorf("ha: el core sigue en estado %q: %w", cfg.State, ctx.Err())
+		case <-time.After(interval):
+		}
+	}
+}
+
 // Close cierra la conexión. Es idempotente.
 func (c *Conn) Close() error {
 	var err error

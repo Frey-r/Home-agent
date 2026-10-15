@@ -49,7 +49,7 @@ func runBootstrap(ctx context.Context, base, user, pass, envPath string, wait ti
 		return err
 	}
 
-	token, err := bootstrap(ctx, base, user, pass, client)
+	token, err := bootstrap(ctx, base, user, pass, client, time.Second)
 	if err != nil {
 		return err
 	}
@@ -87,7 +87,7 @@ func waitReady(ctx context.Context, baseURL string, client *http.Client, interva
 
 // bootstrap crea el usuario owner, obtiene un access token y con él crea un
 // token de larga duración vía WebSocket.
-func bootstrap(ctx context.Context, baseURL, username, password string, client *http.Client) (string, error) {
+func bootstrap(ctx context.Context, baseURL, username, password string, client *http.Client, startPoll time.Duration) (string, error) {
 	baseURL = strings.TrimRight(baseURL, "/")
 	clientID := baseURL + "/"
 
@@ -139,6 +139,12 @@ func bootstrap(ctx context.Context, baseURL, username, password string, client *
 		return "", err
 	}
 	defer conn.Close()
+	// La API de onboarding responde antes de que HA cargue las integraciones
+	// (demo); quien use el token debe encontrar la casa completa.
+	slog.Info("esperando a que Home Assistant termine de arrancar")
+	if err := conn.WaitStarted(ctx, startPoll); err != nil {
+		return "", fmt.Errorf("esperando a que Home Assistant termine de arrancar: %w", err)
+	}
 	raw, err := conn.Command(ctx, map[string]any{
 		"type":        "auth/long_lived_access_token",
 		"client_name": "edge-core-dev",

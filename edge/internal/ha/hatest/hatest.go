@@ -43,6 +43,9 @@ type Options struct {
 	DropOn string
 	// Results agrega respuestas para otros tipos de comando.
 	Results map[string]any
+	// ResultSeq responde llamadas sucesivas de un tipo con los valores en
+	// orden; el último se repite (p. ej. get_config STARTING → RUNNING).
+	ResultSeq map[string][]any
 	// Errors fuerza success=false para un tipo de comando.
 	Errors map[string]ErrorObj
 }
@@ -119,6 +122,7 @@ func serve(ctx context.Context, c *websocket.Conn, o Options) {
 	}
 
 	var pending []map[string]any // solo para ReverseBatch; un único goroutine
+	calls := map[string]int{}    // llamadas por tipo, para ResultSeq
 	for {
 		var cmd map[string]any
 		if err := wsjson.Read(ctx, c, &cmd); err != nil {
@@ -128,7 +132,7 @@ func serve(ctx context.Context, c *websocket.Conn, o Options) {
 		if o.DropOn != "" && typ == o.DropOn {
 			return // CloseNow diferido: corte abrupto
 		}
-		resp := respond(cmd, o)
+		resp := respond(cmd, o, calls)
 		if o.ReverseBatch > 1 {
 			pending = append(pending, resp)
 			if len(pending) < o.ReverseBatch {
@@ -148,20 +152,38 @@ func serve(ctx context.Context, c *websocket.Conn, o Options) {
 	}
 }
 
-func respond(cmd map[string]any, o Options) map[string]any {
+func respond(cmd map[string]any, o Options, calls map[string]int) map[string]any {
 	id := cmd["id"]
 	typ, _ := cmd["type"].(string)
-	if e, ok := o.Errors[typ]; ok {
+	ok := func(result any) map[string]any {
+		return map[string]any{"id": id, "type": "result", "success": true, "result": result}
+	}
+	if e, found := o.Errors[typ]; found {
 		return map[string]any{"id": id, "type": "result", "success": false, "error": e}
 	}
-	if typ == "get_states" {
-		return map[string]any{"id": id, "type": "result", "success": true, "result": o.States}
+	if seq := o.ResultSeq[typ]; len(seq) > 0 {
+		i := min(calls[typ], len(seq)-1)
+		calls[typ]++
+		return ok(seq[i])
 	}
-	if r, ok := o.Results[typ]; ok {
-		return map[string]any{"id": id, "type": "result", "success": true, "result": r}
+	if r, found := o.Results[typ]; found {
+		return ok(r)
+	}
+	switch typ {
+	case "get_states":
+		return ok(o.States)
+	case "get_config":
+		// Como un HA real ya arrancado.
+		return ok(Config("RUNNING", o.HAVersion))
 	}
 	return map[string]any{"id": id, "type": "result", "success": false,
 		"error": ErrorObj{Code: "unknown_command", Message: "Unknown command."}}
+}
+
+// Config construye una respuesta de get_config con el estado del core de HA
+// (NOT_RUNNING, STARTING, RUNNING, STOPPING...).
+func Config(state, version string) map[string]any {
+	return map[string]any{"state": state, "version": version, "time_zone": "America/Santiago"}
 }
 
 // State construye un estado con el formato de HA para fixtures.

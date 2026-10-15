@@ -29,15 +29,31 @@ func TestRun(t *testing.T) {
 		hatest.State("cover.garage_door", "closed", map[string]any{"device_class": "garage"}),
 	}
 
+	devEnv := func(u, d string) map[string]string {
+		return map[string]string{"DOMOTICA_MODE": "dev", "DOMOTICA_HA_URL": u, "DOMOTICA_HA_TOKEN": "test-token", "DOMOTICA_DATA_DIR": d}
+	}
+
 	tests := []struct {
 		name       string
 		args       []string
 		env        func(srvURL, dataDir string) map[string]string
+		configSeq  []any     // respuestas sucesivas de get_config (nil = RUNNING)
 		wantErr    string    // subcadena esperada en el error
 		wantErrIs  error     // errors.Is esperado
 		wantLogs   []string  // subcadenas esperadas en el log
 		wantDBFile bool
 	}{
+		{
+			// Regresión CI M0: no sincronizar una casa a medias mientras HA arranca.
+			name: "espera a que HA termine de arrancar antes de sincronizar",
+			args: []string{"run", "--once"},
+			env:  devEnv,
+			configSeq: []any{
+				hatest.Config("STARTING", "2026.10.0"),
+				hatest.Config("RUNNING", "2026.10.0"),
+			},
+			wantLogs: []string{"esperando a que Home Assistant termine de arrancar", "entities=3"},
+		},
 		{
 			name: "run --once conecta y loguea entidades",
 			args: []string{"run", "--once"},
@@ -79,7 +95,11 @@ func TestRun(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			srv := hatest.New(t, hatest.Options{States: states, HAVersion: "2026.10.0"})
+			opts := hatest.Options{States: states, HAVersion: "2026.10.0"}
+			if tt.configSeq != nil {
+				opts.ResultSeq = map[string][]any{"get_config": tt.configSeq}
+			}
+			srv := hatest.New(t, opts)
 			dataDir := filepath.Join(t.TempDir(), "data") // no existe: run debe crearlo
 			ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 			defer cancel()

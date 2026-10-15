@@ -152,6 +152,55 @@ func TestGetStates_Parses(t *testing.T) {
 	}
 }
 
+// Regresión: tras el onboarding HA responde antes de cargar integraciones;
+// sincronizar en ese momento entrega una casa a medias (CI de M0).
+func TestWaitStarted(t *testing.T) {
+	cfg := func(state string) any { return hatest.Config(state, "2026.10.1") }
+
+	tests := []struct {
+		name      string
+		opts      hatest.Options
+		timeout   time.Duration
+		wantErrIs error
+		wantCmd   bool // se espera *CommandError
+	}{
+		{name: "ya RUNNING", opts: hatest.Options{}},
+		{name: "STARTING y luego RUNNING", opts: hatest.Options{ResultSeq: map[string][]any{
+			"get_config": {cfg("NOT_RUNNING"), cfg("STARTING"), cfg("STARTING"), cfg("RUNNING")},
+		}}},
+		{name: "nunca termina de arrancar", timeout: 200 * time.Millisecond, wantErrIs: context.DeadlineExceeded,
+			opts: hatest.Options{ResultSeq: map[string][]any{"get_config": {cfg("STARTING")}}}},
+		{name: "get_config rechazado", wantCmd: true,
+			opts: hatest.Options{Errors: map[string]hatest.ErrorObj{"get_config": {Code: "unauthorized", Message: "Unauthorized"}}}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			c := connect(t, tt.opts)
+			timeout := tt.timeout
+			if timeout == 0 {
+				timeout = testTimeout
+			}
+			ctx, cancel := context.WithTimeout(context.Background(), timeout)
+			defer cancel()
+
+			err := c.WaitStarted(ctx, 10*time.Millisecond)
+			switch {
+			case tt.wantErrIs != nil:
+				if !errors.Is(err, tt.wantErrIs) {
+					t.Fatalf("WaitStarted() error = %v, want errors.Is %v", err, tt.wantErrIs)
+				}
+			case tt.wantCmd:
+				var cerr *CommandError
+				if !errors.As(err, &cerr) {
+					t.Fatalf("WaitStarted() error = %v, want *CommandError", err)
+				}
+			case err != nil:
+				t.Fatalf("WaitStarted() error: %v", err)
+			}
+		})
+	}
+}
+
 func TestCommand_ErrorResult(t *testing.T) {
 	c := connect(t, hatest.Options{Errors: map[string]hatest.ErrorObj{
 		"get_states": {Code: "unauthorized", Message: "Unauthorized"},

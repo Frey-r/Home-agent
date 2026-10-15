@@ -28,6 +28,11 @@ func TestRealHA_Demo(t *testing.T) {
 	}
 	defer c.Close()
 
+	// Valida contra HA real que get_config expone el estado del core.
+	if err := c.WaitStarted(ctx, 500*time.Millisecond); err != nil {
+		t.Fatalf("WaitStarted() error: %v", err)
+	}
+
 	states, err := c.GetStates(ctx)
 	if err != nil {
 		t.Fatalf("GetStates() error: %v", err)

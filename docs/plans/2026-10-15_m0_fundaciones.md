@@ -175,4 +175,13 @@ Todos los tests son table-driven cuando aplica y se validan con `go test -v -rac
   - **Notas para M1**:
     - El demo de HA expone `calendar`, `todo` y `weather`, que sirven para el brief de M4.
     - El cliente ya tiene `Command` genérico. M1 suma la suscripción a eventos (`readLoop` hoy ignora todo lo que no sea `result`), `call_service`, los registros y la reconexión con resync.
-  - **Entorno**: Docker Desktop mostró un aviso de WSL al arrancar, pero WSL 2 (`Ubuntu`, `docker-desktop`) quedó en `Running` y los contenedores funcionan.
+  - **Entorno**: el aviso que mostró Docker Desktop al arrancar resultó ser el evento 4096 `VBScriptDeprecationAlert` de Windows: Docker usa `cscript` para leer el tema del sistema. No afecta. WSL 2 (`Ubuntu`, `docker-desktop`) quedó en `Running` y los contenedores funcionan.
+- **[2026-10-15] Fix post-cierre (rama `fix/esperar-arranque-ha`)**:
+  - **Qué falló**: en GitHub, el job `test` pasó, pero el job `integration` de la primera corrida de CI falló.
+  - **Causa**: la API de onboarding de HA responde **antes** de que el core termine de cargar las integraciones. Justo después del bootstrap, HA tenía 3 entidades en vez de 123. En local no se veía porque HA llevaba minutos arriba o porque `test.ps1` compila antes de correr el test. Se reprodujo con un HA recreado y el binario del test precompilado.
+  - **Fix (TDD, regresión primero)**:
+    - `ha.Conn.WaitStarted` consulta `get_config` hasta que `state == "RUNNING"`.
+    - Lo usan `ha-bootstrap` (antes de emitir el token) y `edge-core run` (antes de sincronizar), porque tras un reinicio de HA OS la app puede arrancar antes que el core.
+    - Tests: `TestWaitStarted` y casos nuevos en `TestBootstrap` y `TestRun`. `hatest` ahora soporta `ResultSeq` y responde `get_config` por defecto.
+  - **Verificado**: HA recreado → bootstrap corregido → test **anterior** sin espera propia: pasa (122 entidades).
+  - **Nota para M1**: después de `RUNNING` siguen apareciendo entidades (una `weather` llegó tarde). El store de M1 debe escuchar altas y bajas de entidades (`entity_registry_updated` / `state_changed` con `old_state` nulo), no solo sincronizar al inicio.
