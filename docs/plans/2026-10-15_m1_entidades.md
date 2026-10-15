@@ -83,17 +83,16 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] `TestSupervisor_CancelMidBackoffNoLeak`: cancelación limpia de contexto sin fuga de goroutines.
 
 ### Núcleo de `entities` y Adaptadores
-- [ ] `TestAttr_Helpers`: helpers de atributos (tolerancia a NaN, conversiones numéricas, tipos erróneos).
-- [ ] `TestResolveName`: resolución de nombre primario con fallback ordenado.
-- [ ] `TestResolveAliases`: filtrado y normalización de alias.
-- [ ] `TestResolveArea`: asignación de área desde entidad o dispositivo.
-- [ ] `TestAvailability`: normalización de `unavailable` y `unknown`.
-- [ ] `TestRisk_Table`: clasificación de riesgo por dominio y clase.
-- [ ] `TestEntityRisk_IsMaxOfCommands`: riesgo de entidad igual al máximo de sus comandos.
-- [ ] `TestRegistry_UnsupportedSkipped`: filtrado silencioso de dominios no implementados.
-- [ ] `TestCanonicalActions_MatchSchema`: conformidad entre acciones Go y JSON Schema.
-- [ ] Tests de adaptadores por dominio (`Test<Domain>_Build` y `Test<Domain>_Resolve`):
-  - `light`, `switch`, `cover`, `lock`, `alarm_control_panel`, `climate`, `media_player`, `sensor`, `binary_sensor`, `scene`, `script`, `todo`, `weather`.
+- [x] `TestAttr_Helpers`: helpers de atributos (tolerancia a NaN, conversiones numéricas, tipos erróneos).
+- [x] `TestResolveName`: resolución de nombre primario con fallback ordenado.
+- [x] `TestResolveAliases`: filtrado y normalización de alias.
+- [x] `TestResolveArea`: asignación de área desde entidad o dispositivo.
+- [x] `TestAvailability`: normalización de `unavailable` y `unknown`.
+- [x] `TestRisk_Table`: clasificación de riesgo por dominio y clase.
+- [x] `TestEntityRisk_IsMaxOfCommands`: riesgo de entidad igual al máximo de sus comandos.
+- [x] `TestRegistry_UnsupportedSkipped`: filtrado silencioso de dominios no implementados.
+- [x] `TestCanonicalActions_MatchSchema`: conformidad entre acciones Go y JSON Schema.
+- [x] Tests de adaptadores de actuadores (`Test<Domain>_Build`): `light`, `switch`, `cover`, `lock`, `alarm_control_panel`, `climate`.
 - [ ] `TestScene_RiskFromMembers`: riesgo de escena heredado de sus entidades miembro.
 - [ ] `TestBuildAll_DemoGolden`: suite golden sobre fixtures reales del demo.
 - [ ] `TestBuildAll_NoErrorsAndFullCoverage`: cobertura exhaustiva de todas las entidades del demo.
@@ -182,10 +181,10 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] Verificar con `goleak` la ausencia de fugas ante cancelaciones.
 
 ### Fase 7: Núcleo de `entities` y Adaptadores de Actuadores
-- [ ] Escribir tests en rojo de helpers de atributos, resolución de nombres, áreas, disponibilidad y riesgo.
-- [ ] Escribir tests en rojo para adaptadores: `light`, `switch`, `cover`, `lock`, `alarm_control_panel`, `climate`.
-- [ ] Implementar adaptadores y registro central de entidades (Fase verde).
-- [ ] Verificar invariante de parámetros de capacidades.
+- [x] Escribir tests en rojo de helpers de atributos, resolución de nombres, áreas, disponibilidad y riesgo.
+- [x] Escribir tests en rojo para adaptadores: `light`, `switch`, `cover`, `lock`, `alarm_control_panel`, `climate`.
+- [x] Implementar adaptadores y registro central de entidades (Fase verde).
+- [x] Verificar invariante de parámetros de capacidades.
 
 ### Fase 8: Resto de Adaptadores y Pruebas Golden
 - [ ] Escribir tests en rojo para `media_player`, `sensor`, `binary_sensor`, `scene`, `script`, `todo`, `weather`.
@@ -228,5 +227,10 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
   - Fase 6 completada: `Backoff` con cálculo exponencial y jitter, `Supervisor` en `edge/internal/ha/supervisor.go` gestionando reconexión automática, detección de desconexión abrupta, control de arranque de HA (`WaitStarted`), heartbeat ante peers congelados, terminalidad de credenciales inválidas y restablecimiento de backoff tras período sano.
   - Validación con `goleak` confirmando cero fugas de goroutines y tests con `-race` en verde.
   - Estado: listo para iniciar Fase 7 (núcleo de `entities` y adaptadores de actuadores).
+- **[2026-10-15 11:10]**:
+  - Fase 7 completada: helpers de atributos seguros (`attrs.go`), resolución de nombres, alias, áreas y disponibilidad (`resolve.go`), tabla y cálculo de riesgo (`risk.go`), builder y despacho dinámico (`builder.go`), y adaptadores de actuadores (`light`, `switch`, `cover`, `lock`, `alarm_control_panel`, `climate`).
+  - Validación estricta de todas las entidades producidas contra `entity.v1.json` con `contracts.Validator`, e invariante de parámetros libres de `oneOf`/`anyOf`/`allOf`. Tests con `-race` en verde.
+  - Estado: listo para iniciar Fase 8 (adaptadores restantes y pruebas golden).
+
 
 

@@ -182,6 +182,15 @@ func (v *Validator) ValidateEntity(doc []byte) error {
 	return nil
 }
 
+// Validate serializa y valida una entidad contra el esquema v1.
+func (v *Validator) Validate(ent *Entity) error {
+	b, err := json.Marshal(ent)
+	if err != nil {
+		return fmt.Errorf("error al serializar entidad: %w", err)
+	}
+	return v.ValidateEntity(b)
+}
+
 // ValidateParams valida un conjunto de parámetros contra el esquema de la capacidad.
 func ValidateParams(cap Capability, params map[string]any) error {
 	if cap.Params == nil {
