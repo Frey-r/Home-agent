@@ -189,6 +189,32 @@ func TestCommand_GenericResult(t *testing.T) {
 	}
 }
 
+func TestCommand_InvalidInput(t *testing.T) {
+	c := connect(t, hatest.Options{})
+	ctx, cancel := context.WithTimeout(context.Background(), testTimeout)
+	defer cancel()
+
+	tests := []struct {
+		name string
+		cmd  map[string]any
+	}{
+		{name: "comando nil", cmd: nil},
+		{name: "sin type", cmd: map[string]any{"entity_id": "light.x"}},
+		{name: "type vacío", cmd: map[string]any{"type": ""}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if _, err := c.Command(ctx, tt.cmd); err == nil {
+				t.Fatal("Command() error = nil, se esperaba error de validación")
+			}
+		})
+	}
+	// La conexión sigue sana tras rechazar entradas inválidas.
+	if _, err := c.GetStates(ctx); err != nil {
+		t.Fatalf("GetStates() tras validación error: %v", err)
+	}
+}
+
 func TestConcurrentRequests_CorrelateByID(t *testing.T) {
 	const n = 8
 	results := map[string]any{}

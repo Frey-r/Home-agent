@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"strings"
-	"sync"
 	"testing"
 
 	"github.com/coder/websocket"
@@ -119,10 +118,7 @@ func serve(ctx context.Context, c *websocket.Conn, o Options) {
 		return
 	}
 
-	var (
-		mu      sync.Mutex
-		pending []map[string]any
-	)
+	var pending []map[string]any // solo para ReverseBatch; un único goroutine
 	for {
 		var cmd map[string]any
 		if err := wsjson.Read(ctx, c, &cmd); err != nil {
@@ -134,20 +130,16 @@ func serve(ctx context.Context, c *websocket.Conn, o Options) {
 		}
 		resp := respond(cmd, o)
 		if o.ReverseBatch > 1 {
-			mu.Lock()
 			pending = append(pending, resp)
 			if len(pending) < o.ReverseBatch {
-				mu.Unlock()
 				continue
 			}
-			batch := pending
-			pending = nil
-			mu.Unlock()
-			for i := len(batch) - 1; i >= 0; i-- {
-				if err := wsjson.Write(ctx, c, batch[i]); err != nil {
+			for i := len(pending) - 1; i >= 0; i-- {
+				if err := wsjson.Write(ctx, c, pending[i]); err != nil {
 					return
 				}
 			}
+			pending = nil
 			continue
 		}
 		if err := wsjson.Write(ctx, c, resp); err != nil {

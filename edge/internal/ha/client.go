@@ -133,6 +133,9 @@ func (c *Conn) HAVersion() string { return c.haVersion }
 
 // Command envía un comando (se le asigna id) y devuelve el campo result.
 func (c *Conn) Command(ctx context.Context, cmd map[string]any) (json.RawMessage, error) {
+	if typ, _ := cmd["type"].(string); typ == "" {
+		return nil, errors.New("ha: comando sin campo type")
+	}
 	ch := make(chan result, 1)
 
 	c.mu.Lock()
