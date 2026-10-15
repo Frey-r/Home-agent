@@ -93,12 +93,12 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] `TestRegistry_UnsupportedSkipped`: filtrado silencioso de dominios no implementados.
 - [x] `TestCanonicalActions_MatchSchema`: conformidad entre acciones Go y JSON Schema.
 - [x] Tests de adaptadores de actuadores (`Test<Domain>_Build`): `light`, `switch`, `cover`, `lock`, `alarm_control_panel`, `climate`.
-- [ ] `TestScene_RiskFromMembers`: riesgo de escena heredado de sus entidades miembro.
-- [ ] `TestBuildAll_DemoGolden`: suite golden sobre fixtures reales del demo.
-- [ ] `TestBuildAll_NoErrorsAndFullCoverage`: cobertura exhaustiva de todas las entidades del demo.
-- [ ] `TestBuildAll_ValidatesAgainstSchema`: validación estricta de todas las entidades producidas contra `entity.v1.json`.
-- [ ] `TestCapabilityShapeInvariant`: invariante de parámetros por par `(category, action)`.
-- [ ] `TestBuildAll_DeterministicUnderShuffle`: orden determinista independiente del orden de entrada.
+- [x] `TestScene_RiskFromMembers`: riesgo de escena heredado de sus entidades miembro.
+- [x] `TestBuildAll_DemoGolden`: suite golden sobre fixtures reales del demo.
+- [x] `TestBuildAll_NoErrorsAndFullCoverage`: cobertura exhaustiva de todas las entidades del demo.
+- [x] `TestBuildAll_ValidatesAgainstSchema`: validación estricta de todas las entidades producidas contra `entity.v1.json`.
+- [x] `TestCapabilityShapeInvariant`: invariante de parámetros por par `(category, action)`.
+- [x] `TestBuildAll_DeterministicUnderShuffle`: orden determinista independiente del orden de entrada.
 
 ### Directorio y Sincronizador
 - [ ] `TestDirectory_NoBumpOnIdentical`: no incrementa versión si no hay cambios sustanciales.
@@ -187,9 +187,9 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
 - [x] Verificar invariante de parámetros de capacidades.
 
 ### Fase 8: Resto de Adaptadores y Pruebas Golden
-- [ ] Escribir tests en rojo para `media_player`, `sensor`, `binary_sensor`, `scene`, `script`, `todo`, `weather`.
-- [ ] Implementar adaptadores restantes y cálculo de riesgo heredado en escenas.
-- [ ] Implementar `TestBuildAll_DemoGolden`, cobertura del 100% y validación contra `entity.v1.json`.
+- [x] Escribir tests en rojo para `media_player`, `sensor`, `binary_sensor`, `scene`, `script`, `todo`, `weather`.
+- [x] Implementar adaptadores restantes y cálculo de riesgo heredado en escenas.
+- [x] Implementar `TestBuildAll_DemoGolden`, cobertura del 100% y validación contra `entity.v1.json`.
 
 ### Fase 9: Directorio y Sincronizador (`Directory` y `Syncer`)
 - [ ] Escribir tests en rojo de `Directory` (concurrencia, watch coalescente, deduplicación de versión).
@@ -231,6 +231,14 @@ Llevar a `edge-core` de un prototipo básico que lee estados a un sistema integr
   - Fase 7 completada: helpers de atributos seguros (`attrs.go`), resolución de nombres, alias, áreas y disponibilidad (`resolve.go`), tabla y cálculo de riesgo (`risk.go`), builder y despacho dinámico (`builder.go`), y adaptadores de actuadores (`light`, `switch`, `cover`, `lock`, `alarm_control_panel`, `climate`).
   - Validación estricta de todas las entidades producidas contra `entity.v1.json` con `contracts.Validator`, e invariante de parámetros libres de `oneOf`/`anyOf`/`allOf`. Tests con `-race` en verde.
   - Estado: listo para iniciar Fase 8 (adaptadores restantes y pruebas golden).
+- **[2026-10-15 11:17]**:
+  - Fase 8 completada: adaptadores restantes (`media_player`, `sensor`, `binary_sensor`, `scene`, `script`, `todo`, `weather`).
+  - Cálculo de riesgo heredado en escenas a partir de sus miembros (`sceneRisk`).
+  - Suite golden sobre 57 entidades reales del demo HA con 100% de validación estricta contra `entity.v1.json`.
+  - Invariante de forma de parámetros por par (categoría, acción) verificado.
+  - Determinismo estricto verificado ante barajado aleatorio de entradas. Tests con `-race` en verde.
+  - Estado: listo para iniciar Fase 9 (`Directory` y `Syncer`).
+
 
 
 

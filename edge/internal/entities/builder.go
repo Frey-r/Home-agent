@@ -18,6 +18,13 @@ var adapters = map[string]DomainBuilder{
 	"lock":                buildLock,
 	"alarm_control_panel": buildAlarm,
 	"climate":             buildClimate,
+	"media_player":        buildMediaPlayer,
+	"sensor":              buildSensor,
+	"binary_sensor":       buildBinarySensor,
+	"scene":               buildScene,
+	"script":              buildScript,
+	"todo":                buildTodo,
+	"weather":             buildWeather,
 }
 
 // RegisterAdapter permite registrar o sobreescribir un adaptador para un dominio de HA.
@@ -75,6 +82,10 @@ func Build(raw ha.State, reg *ha.Registries, exposed map[string]bool) (*contract
 		if capabilities[i].Params == nil {
 			capabilities[i].Params = emptyParams
 		}
+	}
+
+	if capabilities == nil {
+		capabilities = []contracts.Capability{}
 	}
 
 	if aliases == nil {
