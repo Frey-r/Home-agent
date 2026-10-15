@@ -145,27 +145,44 @@ type Entity struct {
 // Validator compila y valida documentos contra los esquemas embebidos.
 type Validator struct {
 	entityResolved *jsonschema.Resolved
+	llmResolved    *jsonschema.Resolved
 }
 
-// NewValidator compila el esquema entity.v1.json.
+// NewValidator compila los esquemas entity.v1.json y llm.v1.json.
 func NewValidator() (*Validator, error) {
-	data, err := SchemasFS.ReadFile("schemas/entity.v1.json")
+	dataEntity, err := SchemasFS.ReadFile("schemas/entity.v1.json")
 	if err != nil {
 		return nil, fmt.Errorf("error al leer schemas/entity.v1.json: %w", err)
 	}
 
-	var s jsonschema.Schema
-	if err := json.Unmarshal(data, &s); err != nil {
+	var sEntity jsonschema.Schema
+	if err := json.Unmarshal(dataEntity, &sEntity); err != nil {
 		return nil, fmt.Errorf("error al deserializar entity.v1.json: %w", err)
 	}
 
-	resolved, err := s.Resolve(nil)
+	resolvedEntity, err := sEntity.Resolve(nil)
 	if err != nil {
 		return nil, fmt.Errorf("error al resolver entity.v1.json: %w", err)
 	}
 
+	dataLLM, err := SchemasFS.ReadFile("schemas/llm.v1.json")
+	if err != nil {
+		return nil, fmt.Errorf("error al leer schemas/llm.v1.json: %w", err)
+	}
+
+	var sLLM jsonschema.Schema
+	if err := json.Unmarshal(dataLLM, &sLLM); err != nil {
+		return nil, fmt.Errorf("error al deserializar llm.v1.json: %w", err)
+	}
+
+	resolvedLLM, err := sLLM.Resolve(nil)
+	if err != nil {
+		return nil, fmt.Errorf("error al resolver llm.v1.json: %w", err)
+	}
+
 	return &Validator{
-		entityResolved: resolved,
+		entityResolved: resolvedEntity,
+		llmResolved:    resolvedLLM,
 	}, nil
 }
 
@@ -180,6 +197,37 @@ func (v *Validator) ValidateEntity(doc []byte) error {
 		return fmt.Errorf("error de validación de entidad: %w", err)
 	}
 	return nil
+}
+
+// ValidateLLM valida un documento JSON (solicitud o respuesta) contra el esquema llm.v1.json.
+func (v *Validator) ValidateLLM(doc []byte) error {
+	var instance any
+	if err := json.Unmarshal(doc, &instance); err != nil {
+		return fmt.Errorf("JSON inválido: %w", err)
+	}
+
+	if err := v.llmResolved.Validate(instance); err != nil {
+		return fmt.Errorf("error de validación de esquema LLM: %w", err)
+	}
+	return nil
+}
+
+// ValidateLLMResponse serializa y valida una respuesta contra llm.v1.json.
+func (v *Validator) ValidateLLMResponse(resp LLMResponse) error {
+	b, err := json.Marshal(resp)
+	if err != nil {
+		return fmt.Errorf("error al serializar respuesta LLM: %w", err)
+	}
+	return v.ValidateLLM(b)
+}
+
+// ValidateLLMRequest serializa y valida una solicitud contra llm.v1.json.
+func (v *Validator) ValidateLLMRequest(req LLMRequest) error {
+	b, err := json.Marshal(req)
+	if err != nil {
+		return fmt.Errorf("error al serializar solicitud LLM: %w", err)
+	}
+	return v.ValidateLLM(b)
 }
 
 // Validate serializa y valida una entidad contra el esquema v1.
