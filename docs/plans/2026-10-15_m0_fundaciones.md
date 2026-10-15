@@ -141,12 +141,12 @@ Todos los tests son table-driven cuando aplica y se validan con `go test -v -rac
 - [x] Escribir los tests de `cmd/edge-core` y `cmd/ha-bootstrap`, y comprobar que fallan.
 
 ### Fase 2: Implementación Mínima (Verde)
-- [ ] Implementar `config.Load`.
-- [ ] Implementar `store.Open`, `migrate`, `SetMeta`/`GetMeta` y `0001_init.sql`.
-- [ ] Implementar `ha.Connect`, `Conn.Command`, `Conn.GetStates` y `Conn.Close`.
-- [ ] Implementar el subcomando `run` de `edge-core` (con `--once`).
-- [ ] Implementar `ha-bootstrap`.
-- [ ] Correr `dev/scripts/test.ps1` y confirmar que todo queda en verde con `-race`.
+- [x] Implementar `config.Load`.
+- [x] Implementar `store.Open`, `migrate`, `SetMeta`/`GetMeta` y `0001_init.sql`.
+- [x] Implementar `ha.Connect`, `Conn.Command`, `Conn.GetStates` y `Conn.Close`.
+- [x] Implementar el subcomando `run` de `edge-core` (con `--once`).
+- [x] Implementar `ha-bootstrap`.
+- [x] Correr `dev/scripts/test.ps1` y confirmar que todo queda en verde con `-race`.
 
 ### Fase 3: Refactorización y Calidad
 - [ ] `go vet` limpio y revisión de errores descartados (ninguno sin justificar).
